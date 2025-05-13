@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, ReactNode } from "react";
 import { Trip } from "@/types/trip";
 
@@ -12,8 +11,8 @@ const sampleTrips: Trip[] = [
     transitRating: 4.2,
     route: {
       segments: [
-        { color: "#ef4444", isTransfer: false },
-        { color: "#facc15", isTransfer: true }
+        { color: "#ef4444", isTransfer: false, transitLine: "702" },
+        { color: "#facc15", isTransfer: true, transitLine: "R12" }
       ]
     },
     address: "123 Main St, Downtown",
@@ -27,8 +26,8 @@ const sampleTrips: Trip[] = [
     transitRating: 4.1,
     route: {
       segments: [
-        { color: "#3b82f6", isTransfer: false },
-        { color: "#ef4444", isTransfer: true }
+        { color: "#3b82f6", isTransfer: false, transitLine: "CC6" },
+        { color: "#ef4444", isTransfer: true, transitLine: "430" }
       ]
     },
     address: "267 S Beverly Dr, Beverly Hills",
@@ -168,9 +167,24 @@ export function TripProvider({ children }: { children: ReactNode }) {
   };
 
   const visitTrip = (id: string) => {
-    // This would launch maps in a real app
-    console.log(`Launching map directions to trip ${id}`);
+    // Find the trip by ID
+    const trip = trips.find(t => t.id === id);
+    if (!trip) return;
+    
+    // Mark it as visited
     markVisited(id);
+    
+    // Create the Google Maps URL with origin and destination
+    const startingLocation = "Luskin Loop"; // Hardcoded starting location
+    const destinationAddress = trip.address;
+    
+    // Prepare the Google Maps URL with parameters
+    const mapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(startingLocation)}&destination=${encodeURIComponent(destinationAddress)}&travelmode=transit`;
+    
+    // Open Google Maps in a new tab
+    window.open(mapsUrl, '_blank');
+    
+    console.log(`Opening map directions from ${startingLocation} to ${trip.name} at ${trip.address}`);
   };
 
   // Derive liked trips
