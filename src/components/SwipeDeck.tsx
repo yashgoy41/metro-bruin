@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Trip } from "@/types/trip";
 import SwipeCard from "./SwipeCard";
 import { useTrips } from "@/contexts/TripContext";
-import { ArrowLeft } from "lucide-react";
+import { Undo } from "lucide-react";
 
 const SwipeDeck = () => {
   const { trips, currentCategory, likeTrip } = useTrips();
@@ -76,8 +76,8 @@ const SwipeDeck = () => {
 
   return (
     <div className="relative w-full h-full">
-      {/* Go Back Button */}
-      <div className="absolute top-0 left-4 z-10 mb-4">
+      {/* Go Back Button - now positioned above the card */}
+      <div className="flex justify-start px-4 mb-3">
         <button
           onClick={handleGoBack}
           disabled={previousIndex === null}
@@ -89,7 +89,7 @@ const SwipeDeck = () => {
               : "border-gray-200 bg-gray-100 opacity-50 cursor-not-allowed"
           } shadow-sm transition-all duration-300`}
         >
-          <ArrowLeft 
+          <Undo 
             size={18} 
             className={`${goBackActive ? "text-yellow-500" : previousIndex !== null ? "text-gray-500" : "text-gray-300"}`} 
           />

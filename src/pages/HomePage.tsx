@@ -11,7 +11,7 @@ const HomePage = () => {
       <div className="px-4 mb-2 relative pt-10">
         <CategoryTabs />
       </div>
-      <div className="mt-6 pb-4">
+      <div className="mt-4 pb-10">
         <SwipeDeck />
       </div>
       <BottomNavBar />

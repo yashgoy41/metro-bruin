@@ -149,13 +149,13 @@ const SwipeCard = ({ trip, onSwipeLeft, onSwipeRight }: SwipeCardProps) => {
       >
         <CardContent className="p-8">
           <h2 className="text-2xl font-semibold mb-2">{trip.name}</h2>
-          <p className="text-gray-500 mb-6">{trip.location}</p>
+          <p className="text-gray-500 mb-8">{trip.location}</p>
           
-          <div className="my-10 px-4">
+          <div className="my-12 px-4">
             <RoutePreview route={trip.route} />
           </div>
           
-          <div className="flex justify-between items-center mt-8">
+          <div className="flex justify-between items-center mt-10">
             <div className="flex items-center">
               <div className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-300 mr-2">
                 <span className="text-sm">⏱️</span>
