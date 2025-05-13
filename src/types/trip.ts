@@ -3,6 +3,7 @@ export type Route = {
   segments: {
     color: string;
     isTransfer: boolean;
+    transitLine?: string;
   }[];
 };
 

@@ -11,7 +11,24 @@ const RoutePreview = ({ route, className = "" }: RoutePreviewProps) => {
   return (
     <div className={`${className}`}>
       {/* Route line visualization with centered pills */}
-      <div className="relative">
+      <div className="relative mt-10 mb-2">
+        {/* Transit line/bus number pills positioned above each segment */}
+        <div className="absolute -top-8 left-0 right-0 w-full flex items-center justify-around">
+          {route.segments.map((segment, index) => (
+            <div 
+              key={`label-${index}`} 
+              className="flex justify-center"
+            >
+              <div 
+                className="px-3 py-1 rounded-full text-white text-xs font-medium"
+                style={{ backgroundColor: segment.color }}
+              >
+                {segment.transitLine || `Line ${index + 1}`}
+              </div>
+            </div>
+          ))}
+        </div>
+        
         {/* The route line */}
         <div className="flex items-center justify-center">
           {route.segments.map((segment, index) => (
@@ -24,26 +41,6 @@ const RoutePreview = ({ route, className = "" }: RoutePreviewProps) => {
                 style={{ backgroundColor: segment.color }}
               ></div>
             </Fragment>
-          ))}
-        </div>
-        
-        {/* Transit line/bus number pills positioned above each segment */}
-        <div className="absolute top-0 left-0 right-0 transform -translate-y-7 flex items-center justify-center">
-          {route.segments.map((segment, index) => (
-            <div 
-              key={`label-${index}`} 
-              className="flex-1 flex justify-center"
-              style={{
-                marginLeft: index > 0 ? '10px' : '0',
-              }}
-            >
-              <div 
-                className="px-3 py-1 rounded-full text-white text-xs font-medium"
-                style={{ backgroundColor: segment.color }}
-              >
-                {segment.transitLine || `Line ${index + 1}`}
-              </div>
-            </div>
           ))}
         </div>
       </div>
