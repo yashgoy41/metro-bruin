@@ -5,6 +5,7 @@ import { X, Heart } from "lucide-react";
 import RoutePreview from "./RoutePreview";
 import GoButton from "./GoButton";
 import { useTrips } from "@/contexts/TripContext";
+import { Card, CardContent } from "@/components/ui/card";
 
 interface SwipeCardProps {
   trip: Trip;
@@ -86,8 +87,8 @@ const SwipeCard = ({ trip, onSwipeLeft, onSwipeRight }: SwipeCardProps) => {
 
   return (
     <div className="w-full px-4 flex flex-col items-center">
-      <div
-        className="w-full max-w-md bg-white rounded-xl shadow-md overflow-hidden"
+      <Card
+        className="w-full max-w-md overflow-hidden shadow-md"
         style={cardStyle}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
@@ -97,47 +98,47 @@ const SwipeCard = ({ trip, onSwipeLeft, onSwipeRight }: SwipeCardProps) => {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        <div className="p-6">
-          <h2 className="text-2xl font-bold">{trip.name}</h2>
-          <p className="text-gray-500">{trip.location}</p>
+        <CardContent className="p-8">
+          <h2 className="text-2xl font-semibold mb-2">{trip.name}</h2>
+          <p className="text-gray-500 mb-6">{trip.location}</p>
           
-          <div className="my-8 px-4">
+          <div className="my-10 px-4">
             <RoutePreview route={trip.route} />
           </div>
           
-          <div className="flex justify-between items-center mt-6">
+          <div className="flex justify-between items-center mt-8">
             <div className="flex items-center">
-              <div className="w-6 h-6 flex items-center justify-center rounded-full border border-gray-300 mr-2">
+              <div className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-300 mr-2">
                 <span className="text-sm">⏱️</span>
               </div>
-              <span className="text-sm">{trip.transitTime}</span>
+              <span className="text-sm font-medium">{trip.transitTime}</span>
             </div>
             
             <div className="flex items-center">
-              <div className="w-6 h-6 flex items-center justify-center rounded-full border border-gray-300 mr-2">
+              <div className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-300 mr-2">
                 <span className="text-sm">🚌</span>
               </div>
-              <span className="text-sm">{trip.transitRating} ★</span>
+              <span className="text-sm font-medium">{trip.transitRating} ★</span>
             </div>
           </div>
-        </div>
-      </div>
+        </CardContent>
+      </Card>
       
-      <div className="flex justify-center items-center gap-6 mt-6">
+      <div className="flex justify-center items-center gap-8 mt-8">
         <button
           onClick={handleReject}
-          className="w-12 h-12 flex items-center justify-center rounded-full border-2 border-gray-300"
+          className="w-14 h-14 flex items-center justify-center rounded-full border-2 border-gray-200 bg-white shadow-sm transition-colors hover:bg-gray-50"
         >
-          <X size={20} />
+          <X size={22} className="text-gray-500" />
         </button>
         
         <GoButton tripId={trip.id} />
         
         <button
           onClick={handleLike}
-          className="w-12 h-12 flex items-center justify-center rounded-full border-2 border-gray-300"
+          className="w-14 h-14 flex items-center justify-center rounded-full border-2 border-gray-200 bg-white shadow-sm transition-colors hover:bg-gray-50"
         >
-          <Heart size={20} />
+          <Heart size={22} className="text-gray-500" />
         </button>
       </div>
     </div>

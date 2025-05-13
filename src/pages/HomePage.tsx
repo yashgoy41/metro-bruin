@@ -6,10 +6,12 @@ import BottomNavBar from "@/components/BottomNavBar";
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-gray-50 pb-16">
+    <div className="min-h-screen bg-gray-50 pb-20">
       <Header />
-      <CategoryTabs />
-      <div className="mt-4">
+      <div className="px-4 mb-2">
+        <CategoryTabs />
+      </div>
+      <div className="mt-6 pb-4">
         <SwipeDeck />
       </div>
       <BottomNavBar />
