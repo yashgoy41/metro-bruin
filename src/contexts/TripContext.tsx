@@ -175,7 +175,7 @@ export function TripProvider({ children }: { children: ReactNode }) {
     markVisited(id);
     
     // Create the Google Maps URL with origin and destination
-    const startingLocation = "Luskin Loop"; // Hardcoded starting location
+    const startingLocation = "Luskin UCLA"; // Hardcoded starting location
     const destinationAddress = trip.address;
     
     // Prepare the Google Maps URL with parameters
