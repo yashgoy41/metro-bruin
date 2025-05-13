@@ -1,8 +1,9 @@
 
-import { X } from "lucide-react";
+import { X, Heart } from "lucide-react";
 import { Trip } from "@/types/trip";
 import RoutePreview from "./RoutePreview";
 import GoButton from "./GoButton";
+import { useTrips } from "@/contexts/TripContext";
 
 interface TripCardExpandedProps {
   trip: Trip;
@@ -10,13 +11,35 @@ interface TripCardExpandedProps {
 }
 
 const TripCardExpanded = ({ trip, onClose }: TripCardExpandedProps) => {
+  const { likeTrip, unlikeTrip, likedTrips } = useTrips();
+  const isLiked = likedTrips.some((likedTrip) => likedTrip.id === trip.id);
+
+  const toggleLike = () => {
+    if (isLiked) {
+      unlikeTrip(trip.id);
+    } else {
+      likeTrip(trip.id);
+    }
+  };
+
   return (
     <div className="p-4">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-bold">{trip.name}</h2>
-        <button onClick={onClose} className="p-1">
-          <X size={20} />
-        </button>
+        <div className="flex items-center gap-2">
+          <button 
+            onClick={toggleLike} 
+            className="p-1 rounded-full hover:bg-gray-100"
+          >
+            <Heart 
+              size={24} 
+              className={isLiked ? "text-red-500 fill-red-500" : "text-gray-400"} 
+            />
+          </button>
+          <button onClick={onClose} className="p-1">
+            <X size={20} />
+          </button>
+        </div>
       </div>
       
       <p className="text-gray-500 mb-4">{trip.location}</p>

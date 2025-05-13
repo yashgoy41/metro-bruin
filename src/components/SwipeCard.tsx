@@ -20,6 +20,7 @@ const SwipeCard = ({ trip, onSwipeLeft, onSwipeRight }: SwipeCardProps) => {
   const [startPos, setStartPos] = useState({ x: 0, y: 0 });
   const [likeActive, setLikeActive] = useState(false);
   const [rejectActive, setRejectActive] = useState(false);
+  const [willSwipe, setWillSwipe] = useState<'left' | 'right' | null>(null);
 
   const handleMouseDown = (e: React.MouseEvent) => {
     setIsDragging(true);
@@ -39,9 +40,18 @@ const SwipeCard = ({ trip, onSwipeLeft, onSwipeRight }: SwipeCardProps) => {
     };
     setOffset(newOffset);
     
-    // Activate like/reject buttons based on swipe direction
-    setLikeActive(newOffset.x > 50);
-    setRejectActive(newOffset.x < -50);
+    // Set potential swipe direction based on drag distance
+    if (newOffset.x > 50) {
+      setLikeActive(true);
+      setWillSwipe('right');
+    } else if (newOffset.x < -50) {
+      setRejectActive(true);
+      setWillSwipe('left');
+    } else {
+      setLikeActive(false);
+      setRejectActive(false);
+      setWillSwipe(null);
+    }
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
@@ -52,41 +62,54 @@ const SwipeCard = ({ trip, onSwipeLeft, onSwipeRight }: SwipeCardProps) => {
     };
     setOffset(newOffset);
     
-    // Activate like/reject buttons based on swipe direction
-    setLikeActive(newOffset.x > 50);
-    setRejectActive(newOffset.x < -50);
+    // Set potential swipe direction based on drag distance
+    if (newOffset.x > 50) {
+      setLikeActive(true);
+      setWillSwipe('right');
+    } else if (newOffset.x < -50) {
+      setRejectActive(true);
+      setWillSwipe('left');
+    } else {
+      setLikeActive(false);
+      setRejectActive(false);
+      setWillSwipe(null);
+    }
   };
 
   const handleMouseUp = () => {
     if (!isDragging) return;
     
-    if (offset.x > 100) {
+    // Only trigger swipe actions on release and if swiped far enough
+    if (willSwipe === 'right' && offset.x > 100) {
       onSwipeRight();
-    } else if (offset.x < -100) {
+    } else if (willSwipe === 'left' && offset.x < -100) {
       onSwipeLeft();
     }
     
-    // Reset states
+    // Reset all states
     setIsDragging(false);
     setOffset({ x: 0, y: 0 });
     setLikeActive(false);
     setRejectActive(false);
+    setWillSwipe(null);
   };
 
   const handleTouchEnd = () => {
     if (!isDragging) return;
     
-    if (offset.x > 100) {
+    // Only trigger swipe actions on release and if swiped far enough
+    if (willSwipe === 'right' && offset.x > 100) {
       onSwipeRight();
-    } else if (offset.x < -100) {
+    } else if (willSwipe === 'left' && offset.x < -100) {
       onSwipeLeft();
     }
     
-    // Reset states
+    // Reset all states
     setIsDragging(false);
     setOffset({ x: 0, y: 0 });
     setLikeActive(false);
     setRejectActive(false);
+    setWillSwipe(null);
   };
 
   const handleLike = () => {

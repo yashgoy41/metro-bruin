@@ -8,7 +8,7 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-gray-50 pb-20">
       <Header />
-      <div className="px-4 mb-2">
+      <div className="px-4 mb-2 relative pt-10">
         <CategoryTabs />
       </div>
       <div className="mt-6 pb-4">
