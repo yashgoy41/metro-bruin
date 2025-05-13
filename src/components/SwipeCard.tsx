@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Trip } from "@/types/trip";
 import { X, Heart } from "lucide-react";
 import RoutePreview from "./RoutePreview";
@@ -18,6 +18,8 @@ const SwipeCard = ({ trip, onSwipeLeft, onSwipeRight }: SwipeCardProps) => {
   const [isDragging, setIsDragging] = useState(false);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const [startPos, setStartPos] = useState({ x: 0, y: 0 });
+  const [likeActive, setLikeActive] = useState(false);
+  const [rejectActive, setRejectActive] = useState(false);
 
   const handleMouseDown = (e: React.MouseEvent) => {
     setIsDragging(true);
@@ -31,18 +33,28 @@ const SwipeCard = ({ trip, onSwipeLeft, onSwipeRight }: SwipeCardProps) => {
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!isDragging) return;
-    setOffset({
+    const newOffset = {
       x: e.clientX - startPos.x,
       y: e.clientY - startPos.y,
-    });
+    };
+    setOffset(newOffset);
+    
+    // Activate like/reject buttons based on swipe direction
+    setLikeActive(newOffset.x > 50);
+    setRejectActive(newOffset.x < -50);
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
     if (!isDragging) return;
-    setOffset({
+    const newOffset = {
       x: e.touches[0].clientX - startPos.x,
       y: e.touches[0].clientY - startPos.y,
-    });
+    };
+    setOffset(newOffset);
+    
+    // Activate like/reject buttons based on swipe direction
+    setLikeActive(newOffset.x > 50);
+    setRejectActive(newOffset.x < -50);
   };
 
   const handleMouseUp = () => {
@@ -54,8 +66,11 @@ const SwipeCard = ({ trip, onSwipeLeft, onSwipeRight }: SwipeCardProps) => {
       onSwipeLeft();
     }
     
+    // Reset states
     setIsDragging(false);
     setOffset({ x: 0, y: 0 });
+    setLikeActive(false);
+    setRejectActive(false);
   };
 
   const handleTouchEnd = () => {
@@ -67,17 +82,28 @@ const SwipeCard = ({ trip, onSwipeLeft, onSwipeRight }: SwipeCardProps) => {
       onSwipeLeft();
     }
     
+    // Reset states
     setIsDragging(false);
     setOffset({ x: 0, y: 0 });
+    setLikeActive(false);
+    setRejectActive(false);
   };
 
   const handleLike = () => {
-    likeTrip(trip.id);
-    onSwipeRight();
+    setLikeActive(true);
+    setTimeout(() => {
+      likeTrip(trip.id);
+      onSwipeRight();
+      setLikeActive(false);
+    }, 300);
   };
 
   const handleReject = () => {
-    onSwipeLeft();
+    setRejectActive(true);
+    setTimeout(() => {
+      onSwipeLeft();
+      setRejectActive(false);
+    }, 300);
   };
 
   const cardStyle = {
@@ -127,18 +153,32 @@ const SwipeCard = ({ trip, onSwipeLeft, onSwipeRight }: SwipeCardProps) => {
       <div className="flex justify-center items-center gap-8 mt-8">
         <button
           onClick={handleReject}
-          className="w-14 h-14 flex items-center justify-center rounded-full border-2 border-gray-200 bg-white shadow-sm transition-colors hover:bg-gray-50"
+          className={`w-14 h-14 flex items-center justify-center rounded-full border-2 
+          ${rejectActive 
+            ? "border-orange-400 bg-orange-50 scale-110" 
+            : "border-gray-200 bg-white hover:bg-gray-50"
+          } shadow-sm transition-all duration-300`}
         >
-          <X size={22} className="text-gray-500" />
+          <X 
+            size={22} 
+            className={`${rejectActive ? "text-orange-500" : "text-gray-500"}`} 
+          />
         </button>
         
         <GoButton tripId={trip.id} />
         
         <button
           onClick={handleLike}
-          className="w-14 h-14 flex items-center justify-center rounded-full border-2 border-gray-200 bg-white shadow-sm transition-colors hover:bg-gray-50"
+          className={`w-14 h-14 flex items-center justify-center rounded-full border-2 
+          ${likeActive 
+            ? "border-red-400 bg-red-50 scale-110" 
+            : "border-gray-200 bg-white hover:bg-gray-50"
+          } shadow-sm transition-all duration-300`}
         >
-          <Heart size={22} className="text-gray-500" />
+          <Heart 
+            size={22} 
+            className={`${likeActive ? "text-red-500 fill-red-500" : "text-gray-500"}`}
+          />
         </button>
       </div>
     </div>
