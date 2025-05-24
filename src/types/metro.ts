@@ -1,3 +1,4 @@
+
 export type Category = 'cafes' | 'restaurants' | 'museums';
 
 export interface Stop {
@@ -6,6 +7,10 @@ export interface Stop {
   coordinates: [number, number];
   arrivalTime: string;
   nearbyPOIs: string[];
+}
+
+export interface BusStop extends Stop {
+  // Additional properties specific to bus stops can be added here
 }
 
 export interface BusLine {
