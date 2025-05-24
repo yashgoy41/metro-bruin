@@ -9,7 +9,7 @@ const RouteChips = () => {
   const visibleBusLines = busLines.filter(line => visibleRoutes.includes(line.id));
 
   return (
-    <div className="absolute top-4 left-4 z-10 flex flex-col gap-2">
+    <div className="absolute top-36 left-4 z-20 flex flex-row gap-2 flex-wrap">
       {visibleBusLines.map((line) => (
         <motion.button
           key={line.id}

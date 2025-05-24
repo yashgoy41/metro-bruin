@@ -29,8 +29,8 @@ const TopToolbar = () => {
         </div>
       </div>
       
-      {/* Floating Category Pills */}
-      <div className="absolute top-24 left-6 z-20 flex flex-col gap-2">
+      {/* Floating Category Pills - Horizontal Row */}
+      <div className="absolute top-24 left-6 z-30 flex flex-row gap-2">
         {categories.map((category) => (
           <button
             key={category.id}

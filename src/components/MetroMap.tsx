@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
@@ -9,7 +10,7 @@ const MetroMap = () => {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
   const markers = useRef<mapboxgl.Marker[]>([]);
-  const [mapboxToken, setMapboxToken] = useState<string>('');
+  const [mapboxToken, setMapboxToken] = useState<string>('pk.eyJ1IjoieWFzaGdveWFsMDEiLCJhIjoiY21iMWh4MjMwMDhidDJqcHB0Z3VwMnhhMCJ9.Jmd4DvXBjiKNx58rKUhnig');
   
   const { 
     busLines, 
