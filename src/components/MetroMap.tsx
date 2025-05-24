@@ -1,14 +1,15 @@
-
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { useMetro } from '@/contexts/MetroContext';
 import { POI } from '@/types/metro';
+import MapboxTokenInput from './MapboxTokenInput';
 
 const MetroMap = () => {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
   const markers = useRef<mapboxgl.Marker[]>([]);
+  const [mapboxToken, setMapboxToken] = useState<string>('');
   
   const { 
     busLines, 
@@ -20,11 +21,15 @@ const MetroMap = () => {
     setVisibleRoutes 
   } = useMetro();
 
-  useEffect(() => {
-    if (!mapContainer.current) return;
+  const handleTokenSubmit = (token: string) => {
+    setMapboxToken(token);
+  };
 
-    // Initialize map with placeholder token
-    mapboxgl.accessToken = 'your-mapbox-token-here';
+  useEffect(() => {
+    if (!mapContainer.current || !mapboxToken) return;
+
+    // Initialize map with user-provided token
+    mapboxgl.accessToken = mapboxToken;
     
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
@@ -41,7 +46,7 @@ const MetroMap = () => {
       markers.current.forEach(marker => marker.remove());
       map.current?.remove();
     };
-  }, []);
+  }, [mapboxToken]);
 
   // Update map center when context changes
   useEffect(() => {
@@ -103,7 +108,7 @@ const MetroMap = () => {
         });
       });
     });
-  }, [busLines]);
+  }, [busLines, mapboxToken]);
 
   // Update POI markers based on selected category
   useEffect(() => {
@@ -160,16 +165,8 @@ const MetroMap = () => {
     };
   }, [busLines, setVisibleRoutes]);
 
-  if (!mapContainer.current && mapboxgl.accessToken === 'your-mapbox-token-here') {
-    return (
-      <div className="flex-1 flex items-center justify-center bg-gray-100">
-        <div className="text-center p-8">
-          <h3 className="text-lg font-semibold mb-2">Map requires Mapbox token</h3>
-          <p className="text-gray-600 mb-4">Please add your Mapbox public token to enable the map</p>
-          <p className="text-sm text-gray-500">Get your token at https://mapbox.com/</p>
-        </div>
-      </div>
-    );
+  if (!mapboxToken) {
+    return <MapboxTokenInput onTokenSubmit={handleTokenSubmit} />;
   }
 
   return <div ref={mapContainer} className="flex-1 w-full" />;
