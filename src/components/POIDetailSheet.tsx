@@ -1,0 +1,94 @@
+
+import React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, Star, MapPin, Clock } from 'lucide-react';
+import { useMetro } from '@/contexts/MetroContext';
+import { Button } from '@/components/ui/button';
+
+const POIDetailSheet = () => {
+  const { selectedPOI, setSelectedPOI } = useMetro();
+
+  const handleGoClick = () => {
+    if (!selectedPOI) return;
+    
+    const startingLocation = "UCLA, Los Angeles, CA";
+    const destinationAddress = selectedPOI.address;
+    
+    const mapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(startingLocation)}&destination=${encodeURIComponent(destinationAddress)}&travelmode=transit`;
+    
+    window.open(mapsUrl, '_blank');
+  };
+
+  const getPriceLevel = (level: number) => {
+    return '$'.repeat(level) + '·'.repeat(4 - level);
+  };
+
+  return (
+    <AnimatePresence>
+      {selectedPOI && (
+        <motion.div
+          initial={{ y: '100%' }}
+          animate={{ y: 0 }}
+          exit={{ y: '100%' }}
+          transition={{ type: 'spring', damping: 25, stiffness: 500 }}
+          className="fixed bottom-0 left-0 right-0 bg-white rounded-t-2xl shadow-2xl z-20 max-h-[70vh] overflow-y-auto"
+        >
+          <div className="p-6">
+            {/* Header */}
+            <div className="flex justify-between items-start mb-4">
+              <div className="flex-1">
+                <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                  {selectedPOI.name}
+                </h2>
+                <div className="flex items-center gap-4 text-sm text-gray-600">
+                  <div className="flex items-center">
+                    <Star className="w-4 h-4 text-yellow-400 fill-current mr-1" />
+                    <span className="font-medium">{selectedPOI.rating}</span>
+                    <span className="ml-1">({selectedPOI.reviewCount})</span>
+                  </div>
+                  <span>{getPriceLevel(selectedPOI.priceLevel)}</span>
+                  <div className="flex items-center">
+                    <Clock className="w-4 h-4 mr-1" />
+                    <span className={selectedPOI.isOpen ? 'text-green-600' : 'text-red-600'}>
+                      {selectedPOI.isOpen ? 'Open' : 'Closed'}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <button
+                onClick={() => setSelectedPOI(null)}
+                className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+              >
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+
+            {/* Image */}
+            <div className="w-full h-48 bg-gray-200 rounded-lg mb-4 flex items-center justify-center">
+              <span className="text-4xl">{selectedPOI.icon}</span>
+            </div>
+
+            {/* Description */}
+            <p className="text-gray-700 mb-4">{selectedPOI.description}</p>
+
+            {/* Address */}
+            <div className="flex items-center text-gray-600 mb-6">
+              <MapPin className="w-4 h-4 mr-2" />
+              <span>{selectedPOI.address}</span>
+            </div>
+
+            {/* GO Button */}
+            <Button
+              onClick={handleGoClick}
+              className="w-full bg-bettertrip-green hover:bg-bettertrip-green-hover text-white font-bold py-4 text-lg rounded-xl"
+            >
+              GO
+            </Button>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
+
+export default POIDetailSheet;
