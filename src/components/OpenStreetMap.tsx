@@ -337,6 +337,7 @@ const OpenStreetMap = () => {
 
         polyline.on('click', () => {
           setSelectedRoute(line);
+          setSelectedPOI(null); // Close POI sheet when route is selected
         });
 
         busRoutes.current.push(polyline);
@@ -359,7 +360,7 @@ const OpenStreetMap = () => {
         }
       });
     });
-  }, [busLines, selectedRoute, setSelectedRoute]);
+  }, [busLines, selectedRoute, setSelectedRoute, setSelectedPOI]);
 
   // Update POI markers
   useEffect(() => {
