@@ -23,6 +23,8 @@ interface MetroContextType {
   setVisibleRoutes: (routes: string[]) => void;
   previousRoute: BusLine | null;
   setPreviousRoute: (route: BusLine | null) => void;
+  routeSheetScrollPosition: number;
+  setRouteSheetScrollPosition: (position: number) => void;
 }
 
 const MetroContext = createContext<MetroContextType | undefined>(undefined);
@@ -36,6 +38,7 @@ export const MetroProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [mapCenter, setMapCenter] = useState<[number, number]>([-118.4452, 34.0689]); // UCLA center
   const [visibleRoutes, setVisibleRoutes] = useState<string[]>([]);
   const [previousRoute, setPreviousRoute] = useState<BusLine | null>(null);
+  const [routeSheetScrollPosition, setRouteSheetScrollPosition] = useState<number>(0);
 
   const value = {
     busLines: busRoutes,
@@ -56,6 +59,8 @@ export const MetroProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     setVisibleRoutes,
     previousRoute,
     setPreviousRoute,
+    routeSheetScrollPosition,
+    setRouteSheetScrollPosition,
   };
 
   return <MetroContext.Provider value={value}>{children}</MetroContext.Provider>;

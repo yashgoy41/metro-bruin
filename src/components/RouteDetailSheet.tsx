@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useMotionValue, PanInfo } from 'framer-motion';
 import { X, Clock, ChevronRight, Star, MapPin, ArrowLeft } from 'lucide-react';
@@ -14,7 +13,9 @@ const RouteDetailSheet = () => {
     selectedCategory,
     setSelectedPOI,
     selectedBusStop,
-    setPreviousRoute
+    setPreviousRoute,
+    routeSheetScrollPosition,
+    setRouteSheetScrollPosition
   } = useMetro();
   
   // Sheet drag states
@@ -25,7 +26,6 @@ const RouteDetailSheet = () => {
   const y = useMotionValue(0);
   const [selectedStopId, setSelectedStopId] = useState<string | null>(null);
   const [highlightedStopId, setHighlightedStopId] = useState<string | null>(null);
-  const [scrollPosition, setScrollPosition] = useState(0);
 
   // Snap points for the sheet (in vh)
   const snapPoints = {
@@ -135,6 +135,11 @@ const RouteDetailSheet = () => {
       event.stopPropagation();
     }
     
+    // Save current scroll position before transitioning to POI
+    if (stopsListRef.current) {
+      setRouteSheetScrollPosition(stopsListRef.current.scrollTop);
+    }
+    
     // Save the current route as previous route before closing
     if (selectedRoute) {
       setPreviousRoute(selectedRoute);
@@ -157,6 +162,20 @@ const RouteDetailSheet = () => {
       y.set(0);
     }
   }, [selectedRoute]);
+
+  // Restore scroll position when route sheet reopens
+  useEffect(() => {
+    if (selectedRoute && stopsListRef.current && routeSheetScrollPosition > 0) {
+      // Small delay to ensure the DOM has updated
+      setTimeout(() => {
+        if (stopsListRef.current) {
+          stopsListRef.current.scrollTop = routeSheetScrollPosition;
+          // Clear the saved position after restoring
+          setRouteSheetScrollPosition(0);
+        }
+      }, 100);
+    }
+  }, [selectedRoute, routeSheetScrollPosition, setRouteSheetScrollPosition]);
 
   // Scroll to selected bus stop and highlight it
   useEffect(() => {
