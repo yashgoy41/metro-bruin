@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { MapPin } from 'lucide-react';
 import { useMetro } from '@/contexts/MetroContext';
@@ -18,7 +19,12 @@ const TopToolbar = () => {
       <div className="bg-white shadow-lg z-[1001] relative">
         <div className="flex items-center justify-between px-6 py-4">
           <h1 className="text-xl font-bold flex items-center">
-            <span className="mr-2">🚌</span>MetroBruin
+            <img 
+              src="/lovable-uploads/fa2f59d0-1bbd-4815-8500-42e40de07c66.png" 
+              alt="MetroBruin Logo" 
+              className="w-8 h-8 mr-3"
+            />
+            MetroBruin
           </h1>
           
           <div className="flex items-center text-base font-medium">
