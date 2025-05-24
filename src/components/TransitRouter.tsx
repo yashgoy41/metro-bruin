@@ -1,6 +1,7 @@
+
 import React, { useState } from 'react';
 import { useMetro } from '@/contexts/MetroContext';
-import { BusLine, BusStop } from '@/types/metro';
+import { BusLine, Stop } from '@/types/metro';
 
 interface RouteResult {
   distance: number;
@@ -30,8 +31,8 @@ export const TransitRouter = () => {
     return null;
   };
 
-  const findNearbyStops = (coords: [number, number], radius: number): Array<BusStop & { lineId: string; lineName: string; lineColor: string }> => {
-    const stops: Array<BusStop & { lineId: string; lineName: string; lineColor: string }> = [];
+  const findNearbyStops = (coords: [number, number], radius: number): Array<Stop & { lineId: string; lineName: string; lineColor: string }> => {
+    const stops: Array<Stop & { lineId: string; lineName: string; lineColor: string }> = [];
     
     busLines.forEach(line => {
       line.stops.forEach(stop => {
@@ -51,8 +52,8 @@ export const TransitRouter = () => {
   };
 
   const findRouteBetweenStops = (
-    startStop: BusStop & { lineId: string; lineName: string; lineColor: string }, 
-    endStop: BusStop & { lineId: string; lineName: string; lineColor: string }
+    startStop: Stop & { lineId: string; lineName: string; lineColor: string }, 
+    endStop: Stop & { lineId: string; lineName: string; lineColor: string }
   ): RouteResult | null => {
     // Check if both stops are on the same line
     if (startStop.lineId === endStop.lineId) {
@@ -102,4 +103,4 @@ export const TransitRouter = () => {
   };
 };
 
-export default TransitRouter; 
+export default TransitRouter;

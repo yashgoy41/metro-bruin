@@ -146,11 +146,15 @@ const OpenStreetMap = () => {
       }
     });
 
-    // Create custom panes for z-indexing
-    map.current.createPane('default');
-    map.current.createPane('selected');
-    map.current.getPane('selected')!.style.zIndex = '600';
-    map.current.getPane('default')!.style.zIndex = '400';
+    // Create custom panes for proper z-indexing
+    map.current.createPane('routes');
+    map.current.createPane('selectedRoute');
+    map.current.createPane('markers');
+    
+    // Set z-index values to ensure proper layering
+    map.current.getPane('routes')!.style.zIndex = '350'; // Routes below everything
+    map.current.getPane('selectedRoute')!.style.zIndex = '375'; // Selected route slightly above but still below markers
+    map.current.getPane('markers')!.style.zIndex = '400'; // Markers and clusters on top
 
     L.control.zoom({
       position: 'topright'
@@ -169,7 +173,7 @@ const OpenStreetMap = () => {
       updateLocationMarker(e.latlng, e.accuracy);
     });
 
-    // Create marker cluster group with custom styling
+    // Create marker cluster group with custom styling and proper pane
     markerClusterGroup.current = L.markerClusterGroup({
       maxClusterRadius: 40,
       spiderfyOnMaxZoom: false,
@@ -298,8 +302,8 @@ const OpenStreetMap = () => {
       // Draw routes immediately
       busLines.forEach(line => {
         const isSelected = selectedRoute?.id === line.id;
-        const opacity = isSelected ? 1 : 0.4;
-        const weight = isSelected ? 5 : 4;
+        const opacity = isSelected ? 0.9 : 0.4;
+        const weight = isSelected ? 4 : 3;
 
         // Create offset path for overlapping segments
         let offsetCoords: [number, number][] = [];
@@ -323,12 +327,12 @@ const OpenStreetMap = () => {
           }
         });
 
-        // Draw route
+        // Draw route with proper pane assignment
         const polyline = L.polyline(offsetCoords.map(coord => convertCoordinates(coord)), {
           color: line.color,
           weight: weight,
           opacity: opacity,
-          pane: isSelected ? 'selected' : 'default'
+          pane: isSelected ? 'selectedRoute' : 'routes'
         }).addTo(map.current!);
 
         polyline.on('click', () => {
@@ -347,7 +351,7 @@ const OpenStreetMap = () => {
               radius: 5,
               weight: 2,
               opacity: 1,
-              pane: 'selected'
+              pane: 'selectedRoute'
             }).addTo(map.current!);
 
             busStops.current.push(stopMarker);
@@ -379,6 +383,7 @@ const OpenStreetMap = () => {
           justify-content: center; 
           box-shadow: 0 2px 8px rgba(0,0,0,0.3);
           font-size: 16px;
+          z-index: 1000;
         ">${poi.icon}</div>`,
         className: 'custom-poi-marker',
         iconSize: [32, 32],
@@ -387,7 +392,8 @@ const OpenStreetMap = () => {
       });
 
       const marker = L.marker(convertCoordinates(poi.coordinates), {
-        icon: customIcon
+        icon: customIcon,
+        pane: 'markers'
       });
 
       marker.on('click', () => {
@@ -463,4 +469,4 @@ const OpenStreetMap = () => {
   );
 };
 
-export default OpenStreetMap; 
+export default OpenStreetMap;
