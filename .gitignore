@@ -27,3 +27,7 @@ dist-ssr
 # Environment variables
 .env
 
+# GTFS Bus Data
+src/data/bigblue_gtfs_bus/
+src/data/gtfs_bus/
+
