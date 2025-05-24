@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useMotionValue, PanInfo } from 'framer-motion';
 import { X, Clock, ChevronRight, Star, MapPin, ArrowLeft } from 'lucide-react';
@@ -109,7 +110,7 @@ const RouteDetailSheet = () => {
   const handleStopClick = (stop: any) => {
     // Save current scroll position before transitioning
     if (stopsListRef.current) {
-      setScrollPosition(stopsListRef.current.scrollTop);
+      setRouteSheetScrollPosition(stopsListRef.current.scrollTop);
     }
     // Center map on the stop
     setMapCenter(stop.coordinates);
@@ -124,7 +125,7 @@ const RouteDetailSheet = () => {
     // Restore scroll position after the view has transitioned
     setTimeout(() => {
       if (stopsListRef.current) {
-        stopsListRef.current.scrollTop = scrollPosition;
+        stopsListRef.current.scrollTop = routeSheetScrollPosition;
       }
     }, 100); // Small delay to ensure the DOM has updated
   };
