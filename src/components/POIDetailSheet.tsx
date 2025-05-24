@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Star, MapPin, Clock, Navigation } from 'lucide-react';
@@ -6,7 +7,14 @@ import { Button } from '@/components/ui/button';
 import { TransitRouter } from '@/components/TransitRouter';
 
 const POIDetailSheet = () => {
-  const { selectedPOI, setSelectedPOI, mapCenter } = useMetro();
+  const { 
+    selectedPOI, 
+    setSelectedPOI, 
+    mapCenter, 
+    previousRoute, 
+    setPreviousRoute,
+    setSelectedRoute 
+  } = useMetro();
   const { getRouteDirections } = TransitRouter();
 
   const handleGoClick = () => {
@@ -29,6 +37,16 @@ const POIDetailSheet = () => {
       const mapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(startingLocation)}&destination=${encodeURIComponent(destinationAddress)}&travelmode=transit`;
       
       window.open(mapsUrl, '_blank');
+    }
+  };
+
+  const handleClose = () => {
+    setSelectedPOI(null);
+    
+    // If there was a previous route, restore it
+    if (previousRoute) {
+      setSelectedRoute(previousRoute);
+      setPreviousRoute(null);
     }
   };
 
@@ -74,7 +92,7 @@ const POIDetailSheet = () => {
                 </div>
               </div>
               <button
-                onClick={() => setSelectedPOI(null)}
+                onClick={handleClose}
                 className="p-2 hover:bg-gray-100 rounded-full transition-colors"
               >
                 <X className="w-6 h-6" />

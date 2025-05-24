@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useState } from 'react';
 import { BusLine, POI, Category, Stop } from '@/types/metro';
 import { busRoutes } from '@/data/busRoutes';
@@ -20,6 +21,8 @@ interface MetroContextType {
   setMapCenter: (center: [number, number]) => void;
   visibleRoutes: string[];
   setVisibleRoutes: (routes: string[]) => void;
+  previousRoute: BusLine | null;
+  setPreviousRoute: (route: BusLine | null) => void;
 }
 
 const MetroContext = createContext<MetroContextType | undefined>(undefined);
@@ -32,6 +35,7 @@ export const MetroProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [selectedBusStop, setSelectedBusStop] = useState<Stop | null>(null);
   const [mapCenter, setMapCenter] = useState<[number, number]>([-118.4452, 34.0689]); // UCLA center
   const [visibleRoutes, setVisibleRoutes] = useState<string[]>([]);
+  const [previousRoute, setPreviousRoute] = useState<BusLine | null>(null);
 
   const value = {
     busLines: busRoutes,
@@ -50,6 +54,8 @@ export const MetroProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     setMapCenter,
     visibleRoutes,
     setVisibleRoutes,
+    previousRoute,
+    setPreviousRoute,
   };
 
   return <MetroContext.Provider value={value}>{children}</MetroContext.Provider>;

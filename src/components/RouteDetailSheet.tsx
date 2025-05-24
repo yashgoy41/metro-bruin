@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useMotionValue, PanInfo } from 'framer-motion';
 import { X, Clock, ChevronRight, Star, MapPin, ArrowLeft } from 'lucide-react';
@@ -12,7 +13,8 @@ const RouteDetailSheet = () => {
     pois,
     selectedCategory,
     setSelectedPOI,
-    selectedBusStop
+    selectedBusStop,
+    setPreviousRoute
   } = useMetro();
   
   // Sheet drag states
@@ -119,17 +121,32 @@ const RouteDetailSheet = () => {
     setSelectedStopId(null);
     setSheetHeight(getPixelHeight(snapPoints.default));
     
-    // Restore scroll position after a short delay to ensure the view has transitioned
-    requestAnimationFrame(() => {
+    // Restore scroll position after the view has transitioned
+    setTimeout(() => {
       if (stopsListRef.current) {
         stopsListRef.current.scrollTop = scrollPosition;
       }
-    });
+    }, 100); // Small delay to ensure the DOM has updated
   };
 
-  const handlePOIClick = (poi: any) => {
+  const handlePOIClick = (poi: any, event?: React.MouseEvent) => {
+    // Prevent event bubbling if this is called from within a stop click handler
+    if (event) {
+      event.stopPropagation();
+    }
+    
+    // Save the current route as previous route before closing
+    if (selectedRoute) {
+      setPreviousRoute(selectedRoute);
+    }
+    
+    // Set the POI to show the POI sheet
     setSelectedPOI(poi);
     setMapCenter(poi.coordinates);
+    
+    // Close the route sheet temporarily
+    setSelectedRoute(null);
+    setSelectedStopId(null);
   };
 
   // Reset height and selection when route changes
@@ -321,10 +338,7 @@ const RouteDetailSheet = () => {
                                 {nearbyPOIs.map((poi) => (
                                   <button
                                     key={poi.id}
-                                    onClick={(e) => {
-                                      e.stopPropagation();
-                                      handlePOIClick(poi);
-                                    }}
+                                    onClick={(e) => handlePOIClick(poi, e)}
                                     className="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 rounded-full text-sm font-medium text-gray-700 flex items-center gap-1.5 transition-colors flex-shrink-0"
                                   >
                                     <span className="text-base">{poi.icon}</span>
@@ -370,7 +384,7 @@ const RouteDetailSheet = () => {
                     {selectedStopPOIs.map((poi) => (
                       <motion.div
                         key={poi.id}
-                        onClick={() => handlePOIClick(poi)}
+                        onClick={(e) => handlePOIClick(poi, e)}
                         className="bg-gray-50 p-3 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors"
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
