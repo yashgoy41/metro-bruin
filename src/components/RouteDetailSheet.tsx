@@ -7,18 +7,24 @@ import { useMetro } from '@/contexts/MetroContext';
 const RouteDetailSheet = () => {
   const { selectedRoute, setSelectedRoute } = useMetro();
   
+  // Sheet drag states
   const sheetRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
+  const [sheetHeight, setSheetHeight] = useState(300); // Default height in pixels
   const y = useMotionValue(0);
 
-  // Snap points as percentages of viewport height
+  // Snap points for the sheet (in vh)
   const snapPoints = {
-    peek: 0.25,     // 25vh
-    default: 0.4,   // 40vh
-    expanded: 0.65  // 65vh
+    peek: '25vh',
+    default: '40vh', 
+    expanded: '60vh'
   };
 
-  const [currentSnapPoint, setCurrentSnapPoint] = useState<keyof typeof snapPoints>('default');
+  // Convert vh to pixels for calculations
+  const getPixelHeight = (vh: string) => {
+    const value = parseFloat(vh);
+    return (value / 100) * window.innerHeight;
+  };
 
   const handleDragStart = () => {
     setIsDragging(true);
@@ -26,40 +32,43 @@ const RouteDetailSheet = () => {
 
   const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
     setIsDragging(false);
-    const velocity = info.velocity.y;
-    const offset = info.offset.y;
-    const viewportHeight = window.innerHeight;
-
-    // Determine snap point based on velocity and position
-    if (velocity > 500 || offset > viewportHeight * 0.2) {
-      // Close sheet
+    const currentHeight = getPixelHeight('40vh'); // Current default height
+    
+    // Determine which snap point to go to based on drag velocity and distance
+    if (info.velocity.y > 800 || info.offset.y > currentHeight * 0.5) {
+      // Close the sheet
       setSelectedRoute(null);
-      return;
-    } else if (velocity > 200 || offset > viewportHeight * 0.1) {
+    } else if (info.velocity.y > 400 || info.offset.y > currentHeight * 0.25) {
       // Snap to peek
-      setCurrentSnapPoint('peek');
-    } else if (velocity < -200 || offset < -viewportHeight * 0.1) {
+      setSheetHeight(getPixelHeight(snapPoints.peek));
+    } else if (info.velocity.y < -400 || info.offset.y < -currentHeight * 0.2) {
       // Snap to expanded
-      setCurrentSnapPoint('expanded');
+      setSheetHeight(getPixelHeight(snapPoints.expanded));
     } else {
-      // Stay at current or go to default
-      setCurrentSnapPoint('default');
+      // Stay at default
+      setSheetHeight(getPixelHeight(snapPoints.default));
     }
     
+    // Reset y position
     y.set(0);
   };
 
-  // Reset to default when route changes
+  const handleDrag = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+    // Only allow dragging down from peek position, or up/down from other positions
+    if (info.offset.y < 0 && sheetHeight <= getPixelHeight(snapPoints.peek)) {
+      return;
+    }
+  };
+
+  // Reset height when route changes
   useEffect(() => {
     if (selectedRoute) {
-      setCurrentSnapPoint('default');
+      setSheetHeight(getPixelHeight(snapPoints.default));
       y.set(0);
     }
   }, [selectedRoute]);
 
   if (!selectedRoute) return null;
-
-  const currentHeight = `${snapPoints[currentSnapPoint] * 100}vh`;
 
   return (
     <AnimatePresence mode="wait">
@@ -70,12 +79,11 @@ const RouteDetailSheet = () => {
           initial={{ y: '100%' }}
           animate={{ 
             y: 0,
-            height: currentHeight,
             transition: { 
               type: 'spring', 
-              damping: 25,
-              stiffness: 400,
-              mass: 0.6
+              damping: 30,
+              stiffness: 300,
+              mass: 0.8
             }
           }}
           exit={{ 
@@ -83,28 +91,26 @@ const RouteDetailSheet = () => {
             transition: { 
               type: 'spring',
               damping: 30,
-              stiffness: 400,
-              mass: 0.6
+              stiffness: 300,
+              mass: 0.8
             }
           }}
           drag="y"
           dragConstraints={{ top: 0, bottom: 0 }}
-          dragElastic={{ top: 0, bottom: 0.1 }}
+          dragElastic={{ top: 0, bottom: 0.2 }}
           dragMomentum={false}
           onDragStart={handleDragStart}
+          onDrag={handleDrag}
           onDragEnd={handleDragEnd}
-          style={{ y }}
-          className="fixed bottom-0 left-0 right-0 bg-white rounded-t-3xl shadow-2xl z-[1002] overflow-hidden border-t border-gray-100"
+          style={{ 
+            y,
+            height: sheetHeight
+          }}
+          className="fixed bottom-0 left-0 right-0 bg-white rounded-t-3xl shadow-2xl z-[1002] overflow-hidden border-t border-gray-200"
         >
-          {/* Enhanced Drag Handle */}
-          <div className="flex justify-center py-4 bg-gray-50/50">
-            <motion.div 
-              className="w-10 h-1 bg-gray-300 rounded-full"
-              animate={{
-                backgroundColor: isDragging ? '#9CA3AF' : '#D1D5DB'
-              }}
-              transition={{ duration: 0.2 }}
-            />
+          {/* Drag Handle */}
+          <div className={`flex justify-center py-3 ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}>
+            <div className="w-12 h-1.5 bg-gray-300 rounded-full transition-colors hover:bg-gray-400" />
           </div>
 
           <motion.div 
@@ -114,71 +120,45 @@ const RouteDetailSheet = () => {
             }}
           >
             <div className="px-6">
-              {/* Header with improved animations */}
-              <motion.div 
-                className="flex justify-between items-start mb-6"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1, duration: 0.3 }}
-              >
+              {/* Header */}
+              <div className="flex justify-between items-start mb-6">
                 <div className="flex items-center gap-4">
-                  <motion.div 
-                    className="w-12 h-12 rounded-full flex items-center justify-center shadow-lg"
+                  <div 
+                    className="w-12 h-12 rounded-full flex items-center justify-center shadow-md"
                     style={{ backgroundColor: selectedRoute.color }}
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ type: 'spring', stiffness: 400, damping: 25 }}
                   >
                     <span className="text-white font-bold text-lg">{selectedRoute.name}</span>
-                  </motion.div>
+                  </div>
                   <div>
                     <h2 className="text-xl font-bold text-gray-900">Route {selectedRoute.name}</h2>
                     <p className="text-gray-600">{selectedRoute.stops.length} stops</p>
                   </div>
                 </div>
-                <motion.button
+                <button
                   onClick={() => setSelectedRoute(null)}
                   className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ type: 'spring', stiffness: 400, damping: 25 }}
                 >
                   <X className="w-5 h-5 text-gray-500" />
-                </motion.button>
-              </motion.div>
+                </button>
+              </div>
 
-              {/* Stops List with staggered animations */}
-              <motion.div 
-                className="space-y-1"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2, duration: 0.3 }}
-              >
+              {/* Stops List */}
+              <div className="space-y-1">
                 {selectedRoute.stops.map((stop, index) => (
                   <motion.div 
                     key={stop.id} 
-                    className="flex items-center py-3 px-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer"
-                    initial={{ opacity: 0, x: -30 }}
+                    className="flex items-center py-3 px-3 rounded-lg hover:bg-gray-50 transition-colors"
+                    initial={{ opacity: 0, x: -20 }}
                     animate={{ 
                       opacity: 1, 
                       x: 0,
-                      transition: { 
-                        delay: 0.3 + index * 0.05,
-                        type: 'spring',
-                        stiffness: 400,
-                        damping: 25
-                      }
-                    }}
-                    whileHover={{ 
-                      x: 4,
-                      transition: { type: 'spring', stiffness: 400, damping: 25 }
+                      transition: { delay: index * 0.05 }
                     }}
                   >
                     <div className="flex flex-col items-center mr-4">
-                      <motion.div 
+                      <div 
                         className="w-2.5 h-2.5 rounded-full"
                         style={{ backgroundColor: selectedRoute.color }}
-                        whileHover={{ scale: 1.2 }}
-                        transition={{ type: 'spring', stiffness: 400, damping: 25 }}
                       />
                       {index < selectedRoute.stops.length - 1 && (
                         <div 
@@ -194,17 +174,12 @@ const RouteDetailSheet = () => {
                         <p className="text-sm text-gray-600">Arrives in {stop.arrivalTime}</p>
                       </div>
                     </div>
-                    <motion.button 
-                      className="p-2 hover:bg-gray-100 rounded-full transition-colors ml-2"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-                    >
+                    <button className="p-2 hover:bg-gray-100 rounded-full transition-colors ml-2">
                       <ChevronRight className="w-4 h-4 text-gray-400" />
-                    </motion.button>
+                    </button>
                   </motion.div>
                 ))}
-              </motion.div>
+              </div>
             </div>
           </motion.div>
         </motion.div>

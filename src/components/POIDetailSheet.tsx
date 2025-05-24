@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Star, MapPin, Clock, Navigation } from 'lucide-react';
@@ -13,12 +12,17 @@ const POIDetailSheet = () => {
   const handleGoClick = () => {
     if (!selectedPOI) return;
     
+    // Use our transit router instead of Google Maps
     const route = getRouteDirections(mapCenter, selectedPOI.coordinates);
     
     if (route) {
+      // You could show route details in a new component or modal here
       console.log('Route found:', route);
+      
+      // For now, let's show an alert with the route info
       alert(`Route found!\nDistance: ${route.distance}m\nDuration: ${Math.round(route.duration/60)} min\nInstructions: ${route.instructions.join(' → ')}`);
     } else {
+      // Fallback to Google Maps if no transit route found
       const startingLocation = "UCLA, Los Angeles, CA";
       const destinationAddress = selectedPOI.address;
       
@@ -38,59 +42,20 @@ const POIDetailSheet = () => {
     <AnimatePresence>
       {selectedPOI && (
         <motion.div
-          initial={{ y: '100%', opacity: 0 }}
-          animate={{ 
-            y: 0, 
-            opacity: 1,
-            transition: {
-              type: 'spring',
-              damping: 25,
-              stiffness: 400,
-              mass: 0.6
-            }
-          }}
-          exit={{ 
-            y: '100%', 
-            opacity: 0,
-            transition: {
-              type: 'spring',
-              damping: 30,
-              stiffness: 400,
-              mass: 0.6
-            }
-          }}
-          className="fixed bottom-0 left-0 right-0 bg-white rounded-t-3xl shadow-2xl z-[1002] max-h-[70vh] overflow-y-auto"
+          initial={{ y: '100%' }}
+          animate={{ y: 0 }}
+          exit={{ y: '100%' }}
+          transition={{ type: 'spring', damping: 25, stiffness: 500 }}
+          className="fixed bottom-0 left-0 right-0 bg-white rounded-t-2xl shadow-2xl z-[1002] max-h-[70vh] overflow-y-auto"
         >
           <div className="p-6 pb-24">
-            {/* Header with staggered animations */}
-            <motion.div 
-              className="flex justify-between items-start mb-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.3 }}
-            >
+            {/* Header */}
+            <div className="flex justify-between items-start mb-4">
               <div className="flex items-center">
-                <motion.span 
-                  className="text-2xl mr-3"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ 
-                    delay: 0.2, 
-                    type: 'spring', 
-                    stiffness: 400, 
-                    damping: 25 
-                  }}
-                >
-                  {selectedPOI.icon}
-                </motion.span>
+                <span className="text-2xl mr-3">{selectedPOI.icon}</span>
                 <div>
                   <h2 className="text-xl font-bold">{selectedPOI.name}</h2>
-                  <motion.div 
-                    className="flex items-center mt-1"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.3, duration: 0.3 }}
-                  >
+                  <div className="flex items-center mt-1">
                     <div className="flex items-center">
                       <Star className="w-4 h-4 text-yellow-400 fill-current" />
                       <span className="ml-1 text-sm font-medium">{selectedPOI.rating}</span>
@@ -105,71 +70,34 @@ const POIDetailSheet = () => {
                         {selectedPOI.isOpen ? 'Open' : 'Closed'}
                       </span>
                     </div>
-                  </motion.div>
+                  </div>
                 </div>
               </div>
-              <motion.button
+              <button
                 onClick={() => setSelectedPOI(null)}
                 className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 25 }}
               >
                 <X className="w-6 h-6" />
-              </motion.button>
-            </motion.div>
+              </button>
+            </div>
 
-            {/* Description with fade-in */}
-            <motion.p 
-              className="text-gray-700 mb-4"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.3 }}
-            >
-              {selectedPOI.description}
-            </motion.p>
+            {/* Description */}
+            <p className="text-gray-700 mb-4">{selectedPOI.description}</p>
 
-            {/* Address with icon animation */}
-            <motion.div 
-              className="flex items-center text-gray-600"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.5, duration: 0.3 }}
-            >
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-              >
-                <MapPin className="w-4 h-4 mr-2" />
-              </motion.div>
+            {/* Address */}
+            <div className="flex items-center text-gray-600">
+              <MapPin className="w-4 h-4 mr-2" />
               <span>{selectedPOI.address}</span>
-            </motion.div>
+            </div>
 
-            {/* Enhanced GO Button */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ 
-                delay: 0.6, 
-                type: 'spring', 
-                stiffness: 400, 
-                damping: 25 
-              }}
-              className="fixed bottom-6 right-6"
+            {/* GO Button - Fixed position */}
+            <Button
+              onClick={handleGoClick}
+              className="fixed bottom-6 right-6 bg-bettertrip-green hover:bg-bettertrip-green-hover text-white font-bold py-4 px-8 text-lg rounded-xl flex items-center justify-center shadow-lg"
             >
-              <Button
-                onClick={handleGoClick}
-                className="bg-bettertrip-green hover:bg-bettertrip-green-hover text-white font-bold py-4 px-8 text-lg rounded-xl flex items-center justify-center shadow-lg transform transition-all duration-200 hover:scale-105 hover:shadow-xl active:scale-95"
-              >
-                <motion.div
-                  whileHover={{ x: 2 }}
-                  transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-                >
-                  <Navigation className="w-5 h-5 mr-2" />
-                </motion.div>
-                GO
-              </Button>
-            </motion.div>
+              <Navigation className="w-5 h-5 mr-2" />
+              GO
+            </Button>
           </div>
         </motion.div>
       )}
