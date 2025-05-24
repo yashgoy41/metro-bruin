@@ -32,7 +32,8 @@ const OpenStreetMap = () => {
     setSelectedPOI, 
     mapCenter, 
     setMapCenter,
-    setVisibleRoutes 
+    setVisibleRoutes,
+    setSelectedBusStop
   } = useMetro();
 
   // Convert [lng, lat] to [lat, lng] for Leaflet
@@ -155,10 +156,6 @@ const OpenStreetMap = () => {
     map.current.getPane('routes')!.style.zIndex = '350'; // Routes below everything
     map.current.getPane('selectedRoute')!.style.zIndex = '375'; // Selected route slightly above but still below markers
     map.current.getPane('markers')!.style.zIndex = '400'; // Markers and clusters on top
-
-    L.control.zoom({
-      position: 'topright'
-    }).addTo(map.current);
 
     createLocationButton(map.current).addTo(map.current);
 
@@ -355,12 +352,17 @@ const OpenStreetMap = () => {
               pane: 'selectedRoute'
             }).addTo(map.current!);
 
+            stopMarker.on('click', () => {
+              setSelectedBusStop(stop);
+              setMapCenter(stop.coordinates);
+            });
+
             busStops.current.push(stopMarker);
           });
         }
       });
     });
-  }, [busLines, selectedRoute, setSelectedRoute, setSelectedPOI]);
+  }, [busLines, selectedRoute, setSelectedRoute, setSelectedPOI, setSelectedBusStop, setMapCenter]);
 
   // Update POI markers
   useEffect(() => {

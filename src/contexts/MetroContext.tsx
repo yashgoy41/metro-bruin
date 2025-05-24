@@ -14,6 +14,8 @@ interface MetroContextType {
   setSelectedRoute: (route: BusLine | null) => void;
   selectedStop: Stop | null;
   setSelectedStop: (stop: Stop | null) => void;
+  selectedBusStop: Stop | null;
+  setSelectedBusStop: (stop: Stop | null) => void;
   mapCenter: [number, number];
   setMapCenter: (center: [number, number]) => void;
   visibleRoutes: string[];
@@ -27,6 +29,7 @@ export const MetroProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [selectedPOI, setSelectedPOI] = useState<POI | null>(null);
   const [selectedRoute, setSelectedRoute] = useState<BusLine | null>(null);
   const [selectedStop, setSelectedStop] = useState<Stop | null>(null);
+  const [selectedBusStop, setSelectedBusStop] = useState<Stop | null>(null);
   const [mapCenter, setMapCenter] = useState<[number, number]>([-118.4452, 34.0689]); // UCLA center
   const [visibleRoutes, setVisibleRoutes] = useState<string[]>([]);
 
@@ -41,6 +44,8 @@ export const MetroProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     setSelectedRoute,
     selectedStop,
     setSelectedStop,
+    selectedBusStop,
+    setSelectedBusStop,
     mapCenter,
     setMapCenter,
     visibleRoutes,
