@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useMotionValue, PanInfo } from 'framer-motion';
 import { X, Clock, ChevronRight, Star, MapPin, ArrowLeft } from 'lucide-react';
@@ -136,7 +135,7 @@ const RouteDetailSheet = () => {
       event.stopPropagation();
     }
     
-    // Save current scroll position before transitioning to POI
+    // Always save current scroll position before transitioning to POI
     if (stopsListRef.current) {
       setRouteSheetScrollPosition(stopsListRef.current.scrollTop);
     }

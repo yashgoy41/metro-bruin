@@ -13,7 +13,7 @@ const POIDetailSheet = () => {
     previousRoute, 
     setPreviousRoute,
     setSelectedRoute,
-    setRouteSheetScrollPosition
+    routeSheetScrollPosition
   } = useMetro();
   const { getRouteDirections } = TransitRouter();
 
@@ -47,10 +47,7 @@ const POIDetailSheet = () => {
     if (previousRoute) {
       setSelectedRoute(previousRoute);
       setPreviousRoute(null);
-      // Don't clear scroll position here - let it restore naturally
-    } else {
-      // If no previous route, clear the scroll position
-      setRouteSheetScrollPosition(0);
+      // The scroll position will be restored automatically by RouteDetailSheet's effect
     }
   };
 
