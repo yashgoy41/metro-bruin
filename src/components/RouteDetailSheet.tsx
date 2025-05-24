@@ -27,6 +27,7 @@ const RouteDetailSheet = () => {
   const y = useMotionValue(0);
   const [selectedStopId, setSelectedStopId] = useState<string | null>(null);
   const [highlightedStopId, setHighlightedStopId] = useState<string | null>(null);
+  const [stopViewScrollPosition, setStopViewScrollPosition] = useState<number>(0);
 
   // Snap points for the sheet (in vh)
   const snapPoints = {
@@ -280,10 +281,15 @@ const RouteDetailSheet = () => {
                 // Route View
                 <motion.div
                   key="route-view"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  className="px-6 pt-2"
+                  initial={{ opacity: 1, x: 0 }}
+                  animate={{ 
+                    opacity: selectedStopId ? 0 : 1,
+                    x: selectedStopId ? -20 : 0,
+                    pointerEvents: selectedStopId ? 'none' : 'auto'
+                  }}
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                  className="px-6 pt-2 absolute inset-0 top-16"
+                  style={{ display: selectedStopId ? 'none' : 'block' }}
                 >
                   {/* Header */}
                   <div className="flex justify-between items-start mb-8">
@@ -379,10 +385,28 @@ const RouteDetailSheet = () => {
                 // Stop View
                 <motion.div
                   key="stop-view"
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 20 }}
-                  className="px-6"
+                  initial={{ opacity: 0, x: '100%' }}
+                  animate={{ 
+                    opacity: 1, 
+                    x: 0,
+                    transition: { 
+                      type: 'spring',
+                      damping: 30,
+                      stiffness: 300,
+                      mass: 0.8
+                    }
+                  }}
+                  exit={{ 
+                    opacity: 0, 
+                    x: '100%',
+                    transition: { 
+                      type: 'spring',
+                      damping: 30,
+                      stiffness: 300,
+                      mass: 0.8
+                    }
+                  }}
+                  className="px-6 absolute inset-0 top-16 bg-white"
                 >
                   {/* Stop Header */}
                   <div className="flex items-center gap-4 mb-6 pt-4">
@@ -402,7 +426,7 @@ const RouteDetailSheet = () => {
                   </div>
 
                   {/* POI List */}
-                  <div className="space-y-3">
+                  <div className="space-y-3 overflow-y-auto max-h-[calc(100%-120px)]">
                     {selectedStopPOIs.map((poi) => (
                       <motion.div
                         key={poi.id}
