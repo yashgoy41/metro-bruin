@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Star, MapPin, Clock, Navigation } from 'lucide-react';
@@ -12,8 +13,7 @@ const POIDetailSheet = () => {
     mapCenter, 
     previousRoute, 
     setPreviousRoute,
-    setSelectedRoute,
-    routeSheetScrollPosition
+    setSelectedRoute
   } = useMetro();
   const { getRouteDirections } = TransitRouter();
 
@@ -43,7 +43,7 @@ const POIDetailSheet = () => {
   const handleClose = () => {
     setSelectedPOI(null);
     
-    // If there was a previous route, restore it
+    // If there was a previous route, restore it (this will make the route sheet visible again)
     if (previousRoute) {
       setSelectedRoute(previousRoute);
       setPreviousRoute(null);

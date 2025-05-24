@@ -15,7 +15,8 @@ const RouteDetailSheet = () => {
     selectedBusStop,
     setPreviousRoute,
     routeSheetScrollPosition,
-    setRouteSheetScrollPosition
+    setRouteSheetScrollPosition,
+    selectedPOI
   } = useMetro();
   
   // Sheet drag states
@@ -140,7 +141,7 @@ const RouteDetailSheet = () => {
       setRouteSheetScrollPosition(stopsListRef.current.scrollTop);
     }
     
-    // Save the current route as previous route before closing
+    // Save the current route as previous route before hiding
     if (selectedRoute) {
       setPreviousRoute(selectedRoute);
     }
@@ -149,9 +150,7 @@ const RouteDetailSheet = () => {
     setSelectedPOI(poi);
     setMapCenter(poi.coordinates);
     
-    // Close the route sheet temporarily
-    setSelectedRoute(null);
-    setSelectedStopId(null);
+    // Don't close the route sheet - just let it be hidden by the POI sheet
   };
 
   // Reset height and selection when route changes
@@ -163,9 +162,9 @@ const RouteDetailSheet = () => {
     }
   }, [selectedRoute]);
 
-  // Restore scroll position when route sheet reopens
+  // Restore scroll position when route sheet becomes visible again (POI sheet closes)
   useEffect(() => {
-    if (selectedRoute && stopsListRef.current && routeSheetScrollPosition > 0) {
+    if (selectedRoute && !selectedPOI && stopsListRef.current && routeSheetScrollPosition > 0) {
       // Small delay to ensure the DOM has updated
       setTimeout(() => {
         if (stopsListRef.current) {
@@ -175,7 +174,7 @@ const RouteDetailSheet = () => {
         }
       }, 100);
     }
-  }, [selectedRoute, routeSheetScrollPosition, setRouteSheetScrollPosition]);
+  }, [selectedRoute, selectedPOI, routeSheetScrollPosition, setRouteSheetScrollPosition]);
 
   // Scroll to selected bus stop and highlight it
   useEffect(() => {
@@ -201,6 +200,9 @@ const RouteDetailSheet = () => {
   const selectedStop = selectedStopId ? selectedRoute.stops.find(s => s.id === selectedStopId) : null;
   const selectedStopPOIs = selectedStopId ? stopPOIs.get(selectedStopId) || [] : [];
 
+  // Hide the route sheet when POI is selected, but keep it mounted
+  const isVisible = !selectedPOI;
+
   return (
     <AnimatePresence mode="wait">
       {selectedRoute && (
@@ -209,7 +211,7 @@ const RouteDetailSheet = () => {
           key={selectedRoute.id}
           initial={{ y: '100%' }}
           animate={{ 
-            y: 0,
+            y: isVisible ? 0 : '100%',
             transition: { 
               type: 'spring', 
               damping: 30,
@@ -237,7 +239,7 @@ const RouteDetailSheet = () => {
             y,
             height: sheetHeight
           }}
-          className="fixed bottom-0 left-0 right-0 bg-white rounded-t-3xl shadow-2xl z-[1002] overflow-hidden border-t border-gray-200"
+          className="fixed bottom-0 left-0 right-0 bg-white rounded-t-3xl shadow-2xl z-[1001] overflow-hidden border-t border-gray-200"
         >
           {/* Drag Handle */}
           <div className={`flex justify-center py-4 ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}>
@@ -250,6 +252,7 @@ const RouteDetailSheet = () => {
               touchAction: isDragging ? 'none' : 'pan-y'
             }}
           >
+            {/* ... keep existing code (style tag with animation keyframes) */}
             <style>
               {`
                 @keyframes highlightPulse {
