@@ -1,33 +1,32 @@
+export type Category = 'cafes' | 'restaurants' | 'museums';
 
-export type BusLine = {
-  id: string;
-  name: string;
-  color: string;
-  coordinates: [number, number][];
-  stops: BusStop[];
-};
-
-export type BusStop = {
+export interface Stop {
   id: string;
   name: string;
   coordinates: [number, number];
   arrivalTime: string;
-  nearbyPOIs: string[]; // POI IDs
-};
+  nearbyPOIs: string[];
+}
 
-export type POI = {
+export interface BusLine {
   id: string;
   name: string;
-  category: 'cafes' | 'restaurants' | 'museums';
+  color: string;
+  coordinates: [number, number][];
+  stops: Stop[];
+}
+
+export interface POI {
+  id: string;
+  name: string;
+  category: Category;
   coordinates: [number, number];
   rating: number;
   reviewCount: number;
-  priceLevel: number; // 1-4
+  priceLevel: number;
   address: string;
   description: string;
   isOpen: boolean;
-  image: string;
   icon: string;
-};
-
-export type Category = 'cafes' | 'restaurants' | 'museums';
+  image?: string;
+}

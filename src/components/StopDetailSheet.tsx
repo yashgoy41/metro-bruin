@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Star } from 'lucide-react';
@@ -27,7 +26,7 @@ const StopDetailSheet = () => {
           animate={{ y: 0 }}
           exit={{ y: '100%' }}
           transition={{ type: 'spring', damping: 25, stiffness: 500 }}
-          className="fixed bottom-0 left-0 right-0 bg-white rounded-t-2xl shadow-2xl z-20 max-h-[70vh] overflow-y-auto"
+          className="fixed bottom-0 left-0 right-0 bg-white rounded-t-2xl shadow-2xl z-[1002] max-h-[70vh] overflow-y-auto"
         >
           <div className="p-6">
             {/* Header */}

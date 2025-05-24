@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { MapPin } from 'lucide-react';
 import { useMetro } from '@/contexts/MetroContext';
@@ -16,7 +15,7 @@ const TopToolbar = () => {
   return (
     <>
       {/* Header */}
-      <div className="bg-white shadow-lg z-10 relative">
+      <div className="bg-white shadow-lg z-[1001] relative">
         <div className="flex items-center justify-between px-6 py-4">
           <h1 className="text-xl font-bold flex items-center">
             <span className="mr-2">🚌</span>MetroBruin
@@ -30,12 +29,12 @@ const TopToolbar = () => {
       </div>
       
       {/* Floating Category Pills - Horizontal Row */}
-      <div className="absolute top-24 left-6 z-30 flex flex-row gap-2">
+      <div className="absolute top-24 left-6 z-[1000] flex flex-row gap-2 pointer-events-auto">
         {categories.map((category) => (
           <button
             key={category.id}
             onClick={() => setSelectedCategory(category.id)}
-            className={`px-4 py-2 rounded-full font-medium transition-all shadow-lg ${
+            className={`px-4 py-2 rounded-full font-medium transition-all shadow-lg pointer-events-auto ${
               selectedCategory === category.id
                 ? 'bg-blue-500 text-white'
                 : 'bg-white text-gray-700 hover:bg-gray-50'

@@ -1,73 +1,196 @@
-# Welcome to your Lovable project
+# BetterTrip Transit Compass
 
-## Project info
+A free and open-source transit application built with OpenStreetMap, providing bus route visualization and points of interest discovery without requiring API keys or usage fees.
 
-**URL**: https://lovable.dev/projects/6e390bfe-6955-4e6f-8da9-a81b657ac1e5
+## 🚀 Key Features
 
-## How can I edit this code?
+- **Free & Open Source**: No API keys required, no usage limits
+- **Transit Route Visualization**: Display bus lines and stops with real-time styling
+- **Points of Interest (POI)**: Discover cafes, restaurants, and museums near transit stops
+- **Basic Transit Routing**: Calculate routes between points using public transit data
+- **Interactive Maps**: Click on POIs and bus stops for detailed information
+- **Mobile-Friendly**: Responsive design works on all devices
 
-There are several ways of editing your application.
+## 🗺️ Technology Stack
 
-**Use Lovable**
+### Mapping & Visualization
+- **OpenStreetMap**: Free, community-driven map data
+- **Leaflet**: Lightweight, open-source mapping library
+- **React-Leaflet**: React components for Leaflet integration
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/6e390bfe-6955-4e6f-8da9-a81b657ac1e5) and start prompting.
+### Frontend
+- **React + TypeScript**: Modern, type-safe development
+- **Tailwind CSS**: Utility-first styling
+- **Framer Motion**: Smooth animations and transitions
+- **Vite**: Fast development and build tooling
 
-Changes made via Lovable will be committed automatically to this repo.
+### Data Structure
+- GTFS-compatible data models for transit information
+- Extensible POI categorization system
+- Flexible bus line and stop definitions
 
-**Use your preferred IDE**
+## 🚌 Current Transit Data
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+The app currently includes sample data for UCLA area transit:
+- **Route 20**: UCLA to Westwood area
+- **Route R12**: UCLA Medical Center line
+- Sample POIs: Cafes, restaurants, and museums near campus
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🛠️ Getting Started
 
-Follow these steps:
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Installation
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+1. Clone the repository:
+```bash
+git clone <your-repo-url>
+cd bettertrip-transit-compass
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
+2. Install dependencies:
+```bash
+npm install
+```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+3. Start the development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+4. Open http://localhost:8080 in your browser
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🏗️ Architecture
 
-**Use GitHub Codespaces**
+### Component Structure
+```
+src/
+├── components/
+│   ├── OpenStreetMap.tsx      # Main map component
+│   ├── TransitRouter.tsx      # Basic routing logic
+│   ├── RouteChips.tsx         # Route selection UI
+│   ├── POIDetailSheet.tsx     # POI information display
+│   ├── RouteDetailSheet.tsx   # Route details and stops
+│   └── StopDetailSheet.tsx    # Bus stop information
+├── contexts/
+│   └── MetroContext.tsx       # Global state management
+├── types/
+│   └── metro.ts               # TypeScript type definitions
+└── pages/
+    └── MetroBruinPage.tsx     # Main application page
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Data Models
+- **BusLine**: Route information with coordinates and stops
+- **BusStop**: Individual stop data with arrival times and nearby POIs
+- **POI**: Points of interest with ratings, categories, and location data
 
-## What technologies are used for this project?
+## 🚀 Next Steps & Roadmap
 
-This project is built with:
+### Phase 1: Enhanced Routing
+- [ ] Integrate with OpenTripPlanner for GTFS-based routing
+- [ ] Add real-time transit data support
+- [ ] Implement multi-modal routing (walk + transit)
+- [ ] Add route optimization for multiple stops
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Phase 2: Data Integration
+- [ ] GTFS data import from transit agencies
+- [ ] Real-time arrival information
+- [ ] Service alerts and disruptions
+- [ ] Dynamic route updates
 
-## How can I deploy this project?
+### Phase 3: Advanced Features
+- [ ] Offline map support
+- [ ] Trip planning with departure times
+- [ ] Accessibility information
+- [ ] User preferences and favorites
 
-Simply open [Lovable](https://lovable.dev/projects/6e390bfe-6955-4e6f-8da9-a81b657ac1e5) and click on Share -> Publish.
+### Phase 4: Deployment & Scaling
+- [ ] Progressive Web App (PWA) capabilities
+- [ ] Multi-city support
+- [ ] Performance optimization
+- [ ] Analytics and usage tracking
 
-## Can I connect a custom domain to my Lovable project?
+## 🌍 Adding New Cities
 
-Yes, you can!
+To add support for a new city:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+1. **Obtain GTFS Data**: Download GTFS feeds from transit agencies
+2. **Update Context**: Add new bus lines and stops to `MetroContext.tsx`
+3. **Configure Map Center**: Set appropriate coordinates for the new city
+4. **Add Local POIs**: Include relevant points of interest
+5. **Test Routes**: Verify transit routing works correctly
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
+
+## 📱 Mobile Development
+
+The current web app can be extended to native mobile apps:
+- **React Native**: Reuse React components
+- **Capacitor**: Convert to native iOS/Android apps
+- **PWA**: Add offline capabilities and app-like experience
+
+## 🔧 Advanced Configuration
+
+### Custom Map Styles
+Leaflet supports custom tile servers. You can add different map styles:
+
+```typescript
+// In OpenStreetMap.tsx
+L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+  attribution: 'Map data: OpenStreetMap, SRTM | Map style: OpenTopoMap'
+}).addTo(map.current);
+```
+
+### Real-time Data Integration
+For real-time updates, integrate with GTFS-Realtime feeds:
+
+```typescript
+// Example real-time integration
+const fetchRealTimeData = async () => {
+  const response = await fetch('https://api.transit-agency.com/gtfs-realtime');
+  const data = await response.arrayBuffer();
+  // Process GTFS-Realtime protobuf data
+};
+```
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🙏 Acknowledgments
+
+- **OpenStreetMap**: For providing free, open map data
+- **Leaflet**: For the excellent mapping library
+- **Transit Agencies**: For making GTFS data publicly available
+- **Open Source Community**: For all the libraries and tools that made this possible
+
+## 🐛 Known Issues
+
+- Route calculation is currently basic and may not find optimal paths
+- Limited to same-line transfers (no multi-line routing yet)
+- POI data is currently static (not real-time)
+
+## 💡 Why We Chose This Stack
+
+### OpenStreetMap vs. Commercial Solutions
+- **Cost**: Completely free, no usage limits
+- **Data**: Community-maintained, often more detailed than commercial maps
+- **Privacy**: No tracking or data collection
+- **Customization**: Full control over styling and features
+
+### Leaflet vs. Other Mapping Libraries
+- **Lightweight**: Smaller bundle size than alternatives
+- **Flexible**: Easy to customize and extend
+- **Community**: Large ecosystem of plugins
+- **Performance**: Efficient rendering and memory usage
+
+This solution provides a solid foundation for a free, accessible transit application that can serve communities worldwide without the restrictions of commercial mapping APIs.
