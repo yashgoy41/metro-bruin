@@ -5,17 +5,48 @@ import { X, Star, MapPin, Clock, Navigation } from 'lucide-react';
 import { useMetro } from '@/contexts/MetroContext';
 import { Button } from '@/components/ui/button';
 import { TransitRouter } from '@/components/TransitRouter';
+import { set } from 'date-fns';
+import { BusLine } from '@/types/metro';
 
 const POIDetailSheet = () => {
   const { 
+    busLines,
     selectedPOI, 
+    selectedRoute,
     setSelectedPOI, 
     mapCenter, 
     previousRoute, 
     setPreviousRoute,
-    setSelectedRoute
+    setSelectedRoute,
   } = useMetro();
   const { getRouteDirections } = TransitRouter();
+
+  const findNearestBusStop = () => {
+    if (!selectedPOI || !busLines || busLines.length === 0) return null;
+
+    let nearestStop = null;
+    let shortestDistance = Infinity;
+    let associatedLine:BusLine = null;
+
+    busLines.forEach((line) => {
+      line.stops.forEach((stop) => {
+        const distance = Math.sqrt(
+          Math.pow(stop.coordinates[1] - selectedPOI.coordinates[1], 2) +
+          Math.pow(stop.coordinates[0] - selectedPOI.coordinates[0], 2)
+        );
+
+        if (distance < shortestDistance) {
+          shortestDistance = distance;
+          nearestStop = stop;
+          associatedLine = line;
+        }
+      });
+    });
+
+    setSelectedRoute(associatedLine);
+
+    return { stop: nearestStop, line: associatedLine };
+  };
 
   const handleGoClick = () => {
     if (!selectedPOI) return;
@@ -41,6 +72,7 @@ const POIDetailSheet = () => {
   };
 
   const handleClose = () => {
+    setSelectedRoute(null);
     setSelectedPOI(null);
     
     // If there was a previous route, restore it (this will make the route sheet visible again)
@@ -91,6 +123,11 @@ const POIDetailSheet = () => {
                     </div>
                   </div>
                 </div>
+                <img 
+                  src={selectedPOI.image} 
+                  alt={selectedPOI.name} 
+                  className="w-full h-32 object-cover rounded-lg mb-2"
+                />
               </div>
               <button
                 onClick={handleClose}
@@ -108,6 +145,35 @@ const POIDetailSheet = () => {
               <MapPin className="w-4 h-4 mr-2" />
               <span>{selectedPOI.address}</span>
             </div>
+
+            {/* Nearest Bus Stop */}
+            <div className="flex items-center mt-2 text-gray-600">
+              <MapPin className="w-4 h-4 mr-2" />
+              <span>
+                Nearest Stop: {findNearestBusStop()?.stop?.name || 'No nearby stop found'} ({findNearestBusStop()?.line?.name || 'No associated line'})
+              </span>
+            </div>
+
+            {selectedRoute && selectedRoute.id && selectedRoute.color ? (
+              <motion.button
+                key={selectedRoute.id}
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0, opacity: 0 }}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                // onClick={() => handleRouteClick(line)}
+                className={`px-4 py-2 rounded-full text-white font-bold shadow-lg min-w-[60px] pointer-events-auto transition-all`}
+                style={{ 
+                  backgroundColor: selectedRoute.color,
+                  '--tw-ring-color': selectedRoute.color
+                } as any}
+              >
+                {selectedRoute.name}
+              </motion.button>
+            ) : (
+              <></>
+            )}
 
             {/* GO Button - Fixed position */}
             <Button

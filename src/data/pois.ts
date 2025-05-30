@@ -12,7 +12,8 @@ export const pois: POI[] = [
     priceLevel: 2,
     isOpen: true,
     address: "11573 Santa Monica Blvd, Los Angeles, CA 90025",
-    icon: "☕"
+    icon: "☕",
+    image: "https://images.squarespace-cdn.com/content/v1/65a1b90eb0fadc17535f1740/1fc1f843-3ca7-42a4-aec4-b0a46783d043/E6DD21FE-6580-4580-932E-4EF9A612BC74.JPG"
   },
   {
     id: "cafe-caffe-luxxe-brentwood",
@@ -25,7 +26,8 @@ export const pois: POI[] = [
     priceLevel: 2,
     isOpen: true,
     address: "11640 San Vicente Blvd, Los Angeles, CA 90049",
-    icon: "☕"
+    icon: "☕",
+    image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1d/9e/7f/19/enjoy-our-coffee-bar.jpg?w=900&h=500&s=1"
   },
   {
     id: "cafe-malou-coffee",
@@ -38,7 +40,8 @@ export const pois: POI[] = [
     priceLevel: 2,
     isOpen: true,
     address: "912 S Barrington Ave, Los Angeles, CA 90049",
-    icon: "☕"
+    icon: "☕",
+    image: "https://www.caffeluxxe.com/cdn/shop/files/bcm1_1600x.webp?v=1706037116"
   },
   {
     id: "cafe-bodega-wine-bar",
@@ -51,7 +54,8 @@ export const pois: POI[] = [
     priceLevel: 2,
     isOpen: true,
     address: "814 Broadway, Santa Monica, CA 90401",
-    icon: "☕"
+    icon: "☕",
+    image: "https://d1w7312wesee68.cloudfront.net/WR7BRRfRb6-6gtDNlm5YDPbnZ3YU4NAZDQ84G8LhQoA/ext:webp/quality:85/c:720:505:ce:0:0/plain/s3://toast-sites-resources-prod/restaurantImages/c520c3c5-7c3b-4424-8955-af29cfc36a3f/front%2072%20TOAST.jpg",
   },
   {
     id: "cafe-philz-coffee-santa-monica",
@@ -64,7 +68,8 @@ export const pois: POI[] = [
     priceLevel: 2,
     isOpen: false,
     address: "525 Santa Monica Blvd, Santa Monica, CA 90401",
-    icon: "☕"
+    icon: "☕",
+    image: "https://santamonicasun.com/wp-content/uploads/2024/03/Philz.jpg"
   },
   {
     id: "cafe-goodboybob-santa-monica",
@@ -77,7 +82,8 @@ export const pois: POI[] = [
     priceLevel: 2,
     isOpen: true,
     address: "2058 Broadway, Santa Monica, CA 90404",
-    icon: "☕"
+    icon: "☕",
+    image: "https://media.licdn.com/dms/image/v2/C561BAQEhSYsBxw0R-A/company-background_10000/company-background_10000/0/1639940454391/goodboybob_cover?e=2147483647&v=beta&t=GU4pcpsqYnPjBYseVPWhVxBsrAGeVusn9zuPB5Z_bu8",
   },
   {
     "id": "cafe-espresso-profeta",
@@ -93,7 +99,8 @@ export const pois: POI[] = [
     "priceLevel": 2,
     "isOpen": true,
     "address": "1129 Glendon Ave, Los Angeles, CA 90024",
-    "icon": "☕"
+    "icon": "☕",
+    image: "https://egbu7towdf7.exactdn.com/wp-content/uploads/2008/10/Espresso-Profeta.jpg"
   },
   {
     "id": "cafe-ministry-coffee",
@@ -109,7 +116,8 @@ export const pois: POI[] = [
     "priceLevel": 2,
     "isOpen": true,
     "address": "1010 Glendon Ave, Los Angeles, CA 90024",
-    "icon": "☕"
+    "icon": "☕",
+    "image": "https://wp.dailybruin.com/images/2017/11/web.ns_.ministryofcoffee.JP_.jpg",
   },
     {
     id: "cafe-rabbits-coffee",
@@ -122,7 +130,8 @@ export const pois: POI[] = [
     priceLevel: 2,
     isOpen: true,
     address: "1438 1/2 S Robertson Blvd, Los Angeles, CA 90035",
-    icon: "☕"
+    icon: "☕",
+    image: "https://s3-media0.fl.yelpcdn.com/bphoto/xwlAYsfAZzc1q4o1pQh-Yg/258s.jpg",
   },
   {
     id: "cafe-la-la-land-kind-cafe",
@@ -135,7 +144,8 @@ export const pois: POI[] = [
     priceLevel: 2,
     isOpen: true,
     address: "189 The Grove Dr Suite G1C, Los Angeles, CA 90036",
-    icon: "☕"
+    icon: "☕",
+    image: "https://www.shopcommons.com/wp-content/uploads/2023/03/CAC_LaLaLandKindCafe_NowOpen12_900x600.jpg"
   },
   {
     id: "cafe-10-speed-coffee-sm",
@@ -148,7 +158,8 @@ export const pois: POI[] = [
     priceLevel: 2,
     isOpen: true,
     address: "1919 Santa Monica Blvd Suite 102, Santa Monica, CA 90404",
-    icon: "☕"
+    icon: "☕",
+    image: "https://cdn.vox-cdn.com/thumbor/XrMA3P-apCHzVdm_OxtOS3xmfB0=/0x0:1860x1240/1200x800/filters:focal(782x472:1078x768)/cdn.vox-cdn.com/uploads/chorus_image/image/60153469/LI5B8707.0.jpg"
   },
   {
     id: "cafe-10-speed-coffee-sawtelle",
@@ -161,7 +172,8 @@ export const pois: POI[] = [
     priceLevel: 2,
     isOpen: true,
     address: "1947 Sawtelle Blvd Suite B, Los Angeles, CA 90025",
-    icon: "☕"
+    icon: "☕",
+    image: "https://s3-media0.fl.yelpcdn.com/bphoto/o3HgpNNPIGzVcAbtj5PCGA/348s.jpg"
   },
   {
     id: "cafe-series-a-coffee",
@@ -174,7 +186,8 @@ export const pois: POI[] = [
     priceLevel: 2,
     isOpen: true,
     address: "8328 Wilshire Blvd, Beverly Hills, CA 90211",
-    icon: "☕"
+    icon: "☕",
+    image: "https://s3-media0.fl.yelpcdn.com/bphoto/G6D5anqkOnUzsTIs_NIWDA/348s.jpg",
   },
   {
     id: "cafe-maru-espresso-bar",
@@ -187,7 +200,8 @@ export const pois: POI[] = [
     priceLevel: 2,
     isOpen: true,
     address: "201 N Canon Dr, Beverly Hills, CA 90210",
-    icon: "☕"
+    icon: "☕",
+    image: "https://www.marucoffee.com/cdn/shop/files/Maru_espresso_bar_baristas_1000x.jpg?v=1691518008"
   },
   {
     id: "cafe-coffee-tomo",
@@ -200,7 +214,8 @@ export const pois: POI[] = [
     priceLevel: 2,
     isOpen: true,
     address: "11309 Mississippi Ave, Los Angeles, CA 90025",
-    icon: "☕"
+    icon: "☕",
+    image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/74/b2/bb/el-lugar.jpg?w=900&h=500&s=1"
   },
   {
     id: "cafe-tartine-sm",
@@ -213,7 +228,8 @@ export const pois: POI[] = [
     priceLevel: 2,
     isOpen: true,
     address: "1925 Arizona Ave, Santa Monica, CA 90404",
-    icon: "☕"
+    icon: "☕",
+    image: "https://images.squarespace-cdn.com/content/v1/5a8f52b99d5abb5d34bb70d3/1642628439476-QUJMZLPBBU0AS87GJNSU/Cropped_IMG_1762.jpg"
   },
   {
     id: "cafe-sipp-coffee-house",
@@ -226,7 +242,8 @@ export const pois: POI[] = [
     priceLevel: 2,
     isOpen: true,
     address: "1056 S Fairfax Ave, Los Angeles, CA 90019",
-    icon: "☕"
+    icon: "☕",
+    image: "https://s3-media0.fl.yelpcdn.com/bphoto/WlAsuMBhNqlAgZxApt9crQ/348s.jpg"
   },
   {
     id: "cafe-lokl-haus",
@@ -239,7 +256,8 @@ export const pois: POI[] = [
     priceLevel: 2,
     isOpen: true,
     address: "2127 Lincoln Blvd, Santa Monica, CA 90405",
-    icon: "☕"
+    icon: "☕",
+    image: "https://s3-media0.fl.yelpcdn.com/bphoto/TDiEm0_c7yBywcgHNGRSwg/348s.jpg"
   },
   {
     id: "cafe-tilt-coffee-bar",
@@ -252,7 +270,8 @@ export const pois: POI[] = [
     priceLevel: 2,
     isOpen: true,
     address: "334 S Main St, Los Angeles, CA 90013",
-    icon: "☕"
+    icon: "☕",
+    image: "https://img.ctykit.com/cdn/ca-dtla/images/tr:w-1800/tiltcoffeebar_2.jpg"
   },
   {
     id: "cafe-chamberlain-coffee",
@@ -265,7 +284,8 @@ export const pois: POI[] = [
     priceLevel: 2,
     isOpen: true,
     address: "8301 Beverly Blvd, Los Angeles, CA 90048",
-    icon: "☕"
+    icon: "☕",
+    image: "https://s3-media0.fl.yelpcdn.com/bphoto/wgWunuumaHm2bwgspzdLiA/348s.jpg"
   },
   {
     id: "cafe-avva-coffee",
@@ -278,7 +298,8 @@ export const pois: POI[] = [
     priceLevel: 2,
     isOpen: true,
     address: "1451 S La Brea Ave, Los Angeles, CA 90019",
-    icon: "☕"
+    icon: "☕",
+    image: "https://s3-media0.fl.yelpcdn.com/bphoto/vuAKXIcWlrLOkCre4b3CMg/348s.jpg"
   },
     {
     id: "cafe-board-house-coffee",
@@ -291,7 +312,8 @@ export const pois: POI[] = [
     priceLevel: 2,
     isOpen: true,
     address: "11901 Santa Monica Blvd Ste 112, Los Angeles, CA 90025",
-    icon: "☕"
+    icon: "☕",
+    image: "https://s3-media0.fl.yelpcdn.com/bphoto/hnY2ns85rei4lnlXIybKXQ/348s.jpg"
   },
   {
     id: "cafe-alchemist-coffee-project",
@@ -304,7 +326,8 @@ export const pois: POI[] = [
     priceLevel: 2,
     isOpen: true,
     address: "698 S Vermont Ave Ste 103, Los Angeles, CA 90005",
-    icon: "☕"
+    icon: "☕",
+    image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/21/c8/8e/a9/21.jpg?w=900&h=500&s=1"
   },
   {
     id: "cafe-cha-cha-matcha-century-city",
@@ -317,7 +340,8 @@ export const pois: POI[] = [
     priceLevel: 2,
     isOpen: true,
     address: "10250 Santa Monica Blvd Suite #1625, Los Angeles, CA 90067",
-    icon: "☕"
+    icon: "☕",
+    image: "https://www.modernretail.co/wp-content/uploads/sites/5/2022/09/cha-cha-matcha-nomad.jpeg"
   },
   {
     id: "cafe-file-systems-of-coffee",
@@ -330,7 +354,8 @@ export const pois: POI[] = [
     priceLevel: 2,
     isOpen: true,
     address: "6051 Melrose Ave, Los Angeles, CA 90038",
-    icon: "☕"
+    icon: "☕",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtdyaFmUm6NuK7o3v9bXmr2RnUWO1U0WuhCw&s"
   },
   {
     id: "cafe-equator-coffees-culver-city",
@@ -343,7 +368,8 @@ export const pois: POI[] = [
     priceLevel: 2,
     isOpen: true,
     address: "8900 Venice Blvd #105, Culver City, CA 90232",
-    icon: "☕"
+    icon: "☕",
+    image: "https://www.losangelesblade.com/content/files/2022/03/Equator-Coffees-at-Ivy-Station-Culver-City-Photo-Credit-Wonho-Pho-scaled.jpg"
   },
   {
     id: "cafe-eyes-peeled-coffee",
@@ -356,7 +382,8 @@ export const pois: POI[] = [
     priceLevel: 2,
     isOpen: true,
     address: "2839 S Robertson Blvd, Los Angeles, CA 90034",
-    icon: "☕"
+    icon: "☕",
+    image: "https://s3-media0.fl.yelpcdn.com/bphoto/cQmNgN1jNFVs472mlLnUQA/348s.jpg"
   },
   {
     id: "cafe-mudwtr-gather",
@@ -369,7 +396,8 @@ export const pois: POI[] = [
     priceLevel: 2,
     isOpen: true,
     address: "2515 Main St, Santa Monica, CA 90405",
-    icon: "☕"
+    icon: "☕",
+    image: "https://images.squarespace-cdn.com/content/v1/655100b54c023d4139e41375/96fdfd12-f281-4db3-8b0f-de4cd20958b8/Media.jpghttps://www.caffeluxxe.com/cdn/shop/files/bcm3_1600x.webp?v=1706037116"
   },
   {
     "id": "museum-hammer",
