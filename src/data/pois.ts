@@ -4,7 +4,7 @@ export const pois: POI[] = [
   {
     id: "cafe-bonsai-coffee-bar",
     name: "Bonsai Coffee Bar",
-    coordinates: [-118.4481, 34.0453],
+    coordinates: [-118.453780, 34.04500],
     category: "cafes",
     description: "Asian-inspired café offering espresso, matcha, and pastries.",
     rating: 4.7,
@@ -18,7 +18,7 @@ export const pois: POI[] = [
   {
     id: "cafe-caffe-luxxe-brentwood",
     name: "Caffe Luxxe (Brentwood)",
-    coordinates: [-118.4689, 34.0533],
+    coordinates: [-118.463148, 34.053430],
     category: "cafes",
     description: "Artisan coffee roaster serving European-style espresso drinks.",
     rating: 4.5,
@@ -32,7 +32,7 @@ export const pois: POI[] = [
   {
     id: "cafe-malou-coffee",
     name: "Malou Coffee",
-    coordinates: [-118.4722, 34.0581],
+    coordinates: [-118.464813, 34.0530748],
     category: "cafes",
     description: "Cozy café offering single-origin coffees and Uji matcha.",
     rating: 4.6,
@@ -46,7 +46,7 @@ export const pois: POI[] = [
   {
     id: "cafe-bodega-wine-bar",
     name: "Bodega Wine Bar",
-    coordinates: [-118.4912, 34.0173],
+    coordinates: [-118.4893987, 34.0183507],
     category: "cafes",
     description: "Chic lounge offering coffee, wine, and light fare.",
     rating: 4.1,
@@ -74,7 +74,7 @@ export const pois: POI[] = [
   {
     id: "cafe-goodboybob-santa-monica",
     name: "goodboybob (Santa Monica)",
-    coordinates: [-118.4837, 34.0199],
+    coordinates: [-118.4761783, 34.0281368],
     category: "cafes",
     description: "Award-winning coffee roaster with a focus on sustainability.",
     rating: 4.7,
@@ -89,8 +89,7 @@ export const pois: POI[] = [
     "id": "cafe-espresso-profeta",
     "name": "Espresso Profeta",
     "coordinates": [
-      -118.4431,
-      34.0603
+      -118.44418934559147,34.06031180019331
     ],
     "category": "cafes",
     "description": "Artisanal coffee and espresso bar",
@@ -106,8 +105,7 @@ export const pois: POI[] = [
     "id": "cafe-ministry-coffee",
     "name": "Ministry of Coffee",
     "coordinates": [
-      -118.4434,
-      34.0593
+      -118.4439842461533, 34.06189906485298
     ],
     "category": "cafes",
     "description": "Popular local coffee spot in Westwood",
@@ -122,7 +120,7 @@ export const pois: POI[] = [
     {
     id: "cafe-rabbits-coffee",
     name: "Rabbits Coffee",
-    coordinates: [-118.3855, 34.0522],
+    coordinates: [-118.3837656763606, 34.05370809696641],
     category: "cafes",
     description: "Cozy café offering classic coffee beverages and light snacks.",
     rating: 4.8,
@@ -136,7 +134,7 @@ export const pois: POI[] = [
   {
     id: "cafe-la-la-land-kind-cafe",
     name: "La La Land Kind Cafe",
-    coordinates: [-118.3605, 34.0722],
+    coordinates: [ -118.49370775964431, 34.033470148581266],
     category: "cafes",
     description: "Mission-driven café promoting kindness with a variety of coffee and matcha drinks.",
     rating: 4.5,
@@ -150,7 +148,7 @@ export const pois: POI[] = [
   {
     id: "cafe-10-speed-coffee-sm",
     name: "10 Speed Coffee (Santa Monica)",
-    coordinates: [-118.4814, 34.0266],
+    coordinates: [-118.48040953032718, 34.02910270650924],
     category: "cafes",
     description: "Cycling-themed café offering ethically sourced, small-batch roasted coffee.",
     rating: 4.6,
@@ -164,7 +162,7 @@ export const pois: POI[] = [
   {
     id: "cafe-10-speed-coffee-sawtelle",
     name: "10 Speed Coffee (Sawtelle)",
-    coordinates: [-118.4423, 34.0458],
+    coordinates: [ -118.44407621868868, 34.04138524967458],
     category: "cafes",
     description: "Vibrant café in Sawtelle Japantown with a focus on community and quality coffee.",
     rating: 4.8,
@@ -178,7 +176,7 @@ export const pois: POI[] = [
   {
     id: "cafe-series-a-coffee",
     name: "Series A Coffee",
-    coordinates: [-118.3721, 34.0635],
+    coordinates: [-118.37281244567076, 34.064305291297785],
     category: "cafes",
     description: "Trendy café offering Asian-inspired coffee creations in a modern setting.",
     rating: 5.0,
@@ -192,7 +190,7 @@ export const pois: POI[] = [
   {
     id: "cafe-maru-espresso-bar",
     name: "Maru Espresso Bar",
-    coordinates: [-118.4004, 34.0689],
+    coordinates: [-118.398278514980879, 34.068092022778984],
     category: "cafes",
     description: "Minimalist café focusing on high-quality espresso drinks and a serene atmosphere.",
     rating: 4.7,
@@ -206,7 +204,7 @@ export const pois: POI[] = [
   {
     id: "cafe-coffee-tomo",
     name: "Coffee Tomo",
-    coordinates: [-118.4431, 34.0453],
+    coordinates: [ -118.44288434131597, 34.039546700551114],
     category: "cafes",
     description: "Specialty coffee shop known for in-house roasted beans and artisanal pastries.",
     rating: 4.3,
@@ -220,7 +218,7 @@ export const pois: POI[] = [
   {
     id: "cafe-tartine-sm",
     name: "Tartine Santa Monica",
-    coordinates: [-118.4814, 34.0266],
+    coordinates: [-118.48222894453033, 34.03002930753509],
     category: "cafes",
     description: "Bakery and café offering rustic pastries and wood-fired bread in a cozy setting.",
     rating: 3.8,
@@ -234,7 +232,7 @@ export const pois: POI[] = [
   {
     id: "cafe-sipp-coffee-house",
     name: "Sipp Coffee House",
-    coordinates: [-118.3765, 34.0639],
+    coordinates: [-118.44148392192116,34.05477399215926],
     category: "cafes",
     description: "Modern café serving a variety of coffee drinks in a relaxed environment.",
     rating: 4.4,
@@ -248,7 +246,7 @@ export const pois: POI[] = [
   {
     id: "cafe-lokl-haus",
     name: "Lokl Haus",
-    coordinates: [-118.4716, 34.0195],
+    coordinates: [-118.47385800333149,34.033953689272536],
     category: "cafes",
     description: "Community-focused café offering specialty coffee and a welcoming atmosphere.",
     rating: 4.6,
@@ -262,7 +260,7 @@ export const pois: POI[] = [
   {
     id: "cafe-tilt-coffee-bar",
     name: "Tilt Coffee Bar",
-    coordinates: [-118.2531, 34.0469],
+    coordinates: [-118.41466360334327, 34.05812748464429],
     category: "cafes",
     description: "Sleek café known for its minimalist design and high-quality espresso drinks.",
     rating: 4.5,
@@ -276,7 +274,7 @@ export const pois: POI[] = [
   {
     id: "cafe-chamberlain-coffee",
     name: "Chamberlain Coffee",
-    coordinates: [-118.3750, 34.0703],
+    coordinates: [-118.41821652172567, 34.05857128243539],
     category: "cafes",
     description: "Trendy café offering a variety of coffee blends in a stylish setting.",
     rating: 4.2,
@@ -290,7 +288,7 @@ export const pois: POI[] = [
   {
     id: "cafe-avva-coffee",
     name: "Avva Coffee",
-    coordinates: [-118.3822, 34.0527],
+    coordinates: [-118.4052041168342,34.070189573156085],
     category: "cafes",
     description: "Chic café serving specialty coffee drinks and light bites.",
     rating: 4.3,
@@ -304,7 +302,7 @@ export const pois: POI[] = [
     {
     id: "cafe-board-house-coffee",
     name: "Board House Coffee",
-    coordinates: [-118.4605, 34.0458],
+    coordinates: [-118.46080700248004, 34.04186624280033],
     category: "cafes",
     description: "Surf-inspired café offering specialty coffee and fresh pastries.",
     rating: 4.5,
@@ -318,7 +316,7 @@ export const pois: POI[] = [
   {
     id: "cafe-alchemist-coffee-project",
     name: "Alchemist Coffee Project",
-    coordinates: [-118.2917, 34.0584],
+    coordinates: [-118.29139573790887,34.06016800076832],
     category: "cafes",
     description: "Koreatown café known for its artful espresso drinks and cozy ambiance.",
     rating: 4.6,
@@ -332,7 +330,7 @@ export const pois: POI[] = [
   {
     id: "cafe-cha-cha-matcha-century-city",
     name: "Cha Cha Matcha (Century City)",
-    coordinates: [-118.4170, 34.0595],
+    coordinates: [-118.41885110959043, 34.05898501822539],
     category: "cafes",
     description: "Vibrant café specializing in matcha beverages and pastries.",
     rating: 4.3,
@@ -346,7 +344,7 @@ export const pois: POI[] = [
   {
     id: "cafe-file-systems-of-coffee",
     name: "File Systems of Coffee",
-    coordinates: [-118.3270, 34.0832],
+    coordinates: [-118.33218387826926, 34.0836304409708],
     category: "cafes",
     description: "Artistic café offering unique brews in a minimalist setting.",
     rating: 4.7,
@@ -360,7 +358,7 @@ export const pois: POI[] = [
   {
     id: "cafe-equator-coffees-culver-city",
     name: "Equator Coffees (Culver City)",
-    coordinates: [-118.3841, 34.0266],
+    coordinates: [118.38891435684937, 34.02839545932042],
     category: "cafes",
     description: "Sustainable coffee roaster serving ethically sourced brews.",
     rating: 4.5,
@@ -374,7 +372,7 @@ export const pois: POI[] = [
   {
     id: "cafe-eyes-peeled-coffee",
     name: "Eyes Peeled Coffee",
-    coordinates: [-118.3855, 34.0307],
+    coordinates: [-118.38921911975058, 34.03604460814882],
     category: "cafes",
     description: "Bright café known for specialty coffee and acai bowls.",
     rating: 4.6,
@@ -388,7 +386,7 @@ export const pois: POI[] = [
   {
     id: "cafe-mudwtr-gather",
     name: "MUD\WTR :gather",
-    coordinates: [-118.4837, 34.0059],
+    coordinates: [-118.48417401921381, 34.00303725438745],
     category: "cafes",
     description: "Mindfulness studio and café offering coffee alternatives and wellness events.",
     rating: 4.3,
@@ -403,8 +401,7 @@ export const pois: POI[] = [
     "id": "museum-hammer",
     "name": "Hammer Museum",
     "coordinates": [
-      -118.4444,
-      34.0585
+      -118.44367582059729, 34.05909627633695
     ],
     "category": "museums",
     "description": "Contemporary art museum featuring rotating exhibitions",
@@ -432,6 +429,201 @@ export const pois: POI[] = [
     "icon": "🍽️"
   },
   {
+    "id": "restaurants-1--1184738845825-3403366470336",
+    "coordinates": [-118.47388458251953, 34.03366470336914],
+    "category": "restaurants",
+    "name": "Haidilao Hot Pot",
+    "description": "Premium Chinese hot pot experience known for exceptional service and fresh ingredients.",
+    "rating": 4.81,
+    "reviewCount": 1290,
+    "priceLevel": 3,
+    "isOpen": true,
+    "address": "10250 Santa Monica Blvd Ste 2610, Los Angeles, CA 90067",
+    "icon": "🍽️"
+  },
+  {
+    "id": "restaurants-1--1183007969-340639484",
+    "coordinates": [-118.3007969, 34.0639484],
+    "category": "restaurants",
+    "name": "Sun Nong Dan",
+    "description": "Popular Korean restaurant specializing in galbi jjim and sullungtang.",
+    "rating": 4.3,
+    "reviewCount": 40,
+    "priceLevel": 2,
+    "isOpen": true,
+    "address": "3470 W 6th St Ste 7, Los Angeles, CA 90020",
+    "icon": "🍽️"
+  },
+  {
+    "id": "restaurants-1--1183311019-340966589",
+    "coordinates": [-118.3311019, 34.0966589],
+    "category": "restaurants",
+    "name": "Mother Wolf",
+    "description": "Upscale Italian restaurant offering Roman-inspired dishes in a lavish setting.",
+    "rating": 3.9,
+    "reviewCount": 26,
+    "priceLevel": 4,
+    "isOpen": true,
+    "address": "1545 Wilcox Ave, Los Angeles, CA 90028",
+    "icon": "🍽️"
+  },
+  {
+    "id": "restaurants-1--1184982872-340157086",
+    "coordinates": [-118.4982872, 34.0157086],
+    "category": "restaurants",
+    "name": "Uovo",
+    "description": "Italian pasta bar serving fresh pasta made in Bologna, Italy.",
+    "rating": 4.4,
+    "reviewCount": 175,
+    "priceLevel": 2,
+    "isOpen": true,
+    "address": "1320 2nd St, Santa Monica, CA 90401",
+    "icon": "🍽️"
+  },
+  {
+    "id": "restaurants-1--1182775726318-3405068969726",
+    "coordinates": [-118.27757263183594, 34.050689697265625],
+    "category": "restaurants",
+    "name": "Shabuya LA",
+    "description": "All-you-can-eat shabu-shabu spot offering a variety of broths and fresh ingredients.",
+    "rating": 4.2,
+    "reviewCount": 19,
+    "priceLevel": 2,
+    "isOpen": true,
+    "address": "1925 W Olympic Blvd, Los Angeles, CA 90006",
+    "icon": "🍽️"
+  },
+  {
+    "id": "restaurants-1--118383871-340299566",
+    "coordinates": [-118.383871, 34.0299566],
+    "category": "restaurants",
+    "name": "Pasta Sisters",
+    "description": "Casual Italian eatery known for fresh pasta and cozy ambiance.",
+    "rating": 4.5,
+    "reviewCount": 243,
+    "priceLevel": 2,
+    "isOpen": true,
+    "address": "3280 Helms Ave, Culver City, CA 90232",
+    "icon": "🍽️"
+  },
+  {
+    "id": "restaurants-1--1184452735-34035887",
+    "coordinates": [-118.4452735, 34.035887],
+    "category": "restaurants",
+    "name": "Mogu Mogu",
+    "description": "Specialty ramen shop focusing on mazemen (brothless ramen) with a minimalist setting.",
+    "rating": 4.9,
+    "reviewCount": 2000,
+    "priceLevel": 2,
+    "isOpen": true,
+    "address": "11555 W Olympic Blvd Ste B, Los Angeles, CA 90064",
+    "icon": "🍽️"
+  },
+  {
+    "id": "restaurants-1--1184433017-340402146",
+    "coordinates": [-118.4433017, 34.0402146],
+    "category": "restaurants",
+    "name": "Marugame Udon",
+    "description": "Japanese eatery offering freshly made udon noodles in a cafeteria-style setting.",
+    "rating": 4.5,
+    "reviewCount": 241,
+    "priceLevel": 1,
+    "isOpen": true,
+    "address": "2029 Sawtelle Blvd, Los Angeles, CA 90025",
+    "icon": "🍽️"
+  },
+  {
+    "id": "restaurants-1--1184441680908-3404155731201",
+    "coordinates": [-118.44416809082031, 34.04155731201172],
+    "category": "restaurants",
+    "name": "Tsujita LA Artisan Noodle",
+    "description": "Renowned for tsukemen and ramen, offering rich broths and handmade noodles.",
+    "rating": 4.5,
+    "reviewCount": 1500,
+    "priceLevel": 2,
+    "isOpen": true,
+    "address": "2057 Sawtelle Blvd, Los Angeles, CA 90025",
+    "icon": "🍽️"
+  },
+  {
+    "id": "restaurants-1--118297081-34063511",
+    "coordinates": [-118.297081, 34.063511],
+    "category": "restaurants",
+    "name": "Hangari Kalguksu",
+    "description": "Korean restaurant specializing in hand-cut noodle soups and comforting dishes.",
+    "rating": 4.5,
+    "reviewCount": 500,
+    "priceLevel": 2,
+    "isOpen": true,
+    "address": "3470 W 6th St Ste 9, Los Angeles, CA 90020",
+    "icon": "🍽️"
+  },
+  {
+    "id": "restaurants-1--1183007969-340639484",
+    "coordinates": [-118.3007969, 34.0639484],
+    "category": "restaurants",
+    "name": "Yup Dduk",
+    "description": "Spicy Korean rice cake dishes in a casual setting, popular for late-night cravings.",
+    "rating": 4.0,
+    "reviewCount": 300,
+    "priceLevel": 1,
+    "isOpen": true,
+    "address": "450 S Western Ave Ste 305, Los Angeles, CA 90020",
+    "icon": "🍽️"
+  },
+  {
+    "id": "restaurants-1--1183007969-340639484",
+    "coordinates": [-118.3007969, 34.0639484],
+    "category": "restaurants",
+    "name": "BCD Tofu House",
+    "description": "24-hour Korean restaurant known for its soft tofu stew and traditional dishes.",
+    "rating": 4.2,
+    "reviewCount": 1200,
+    "priceLevel": 2,
+    "isOpen": true,
+    "address": "3575 Wilshire Blvd, Los Angeles, CA 90010",
+    "icon": "🍽️"
+  },
+  {
+    "id": "restaurants-1--118277145-3409052",
+    "coordinates": [-118.277145, 34.09052],
+    "category": "restaurants",
+    "name": "Pine & Crane",
+    "description": "Taiwanese eatery offering a modern take on traditional dishes with fresh ingredients.",
+    "rating": 4.5,
+    "reviewCount": 800,
+    "priceLevel": 2,
+    "isOpen": true,
+    "address": "1521 Griffith Park Blvd, Los Angeles, CA 90026",
+    "icon": "🍽️"
+  },
+  {
+    "id": "restaurants-1--1182911632-340636783",
+    "coordinates": [-118.2911632, 34.0636783],
+    "category": "restaurants",
+    "name": "Liu’s Cafe",
+    "description": "Cozy Korean cafe offering a variety of traditional dishes and beverages.",
+    "rating": 4.0,
+    "reviewCount": 150,
+    "priceLevel": 1,
+    "isOpen": true,
+    "address": "356 S Western Ave, Los Angeles, CA 90020",
+    "icon": "🍽️"
+  },
+  {
+    "id": "restaurants-1--118204636-34120961",
+    "coordinates": [-118.204636, 34.120961],
+    "category": "restaurants",
+    "name": "Joy",
+    "description": "Taiwanese restaurant serving street food-inspired dishes in a vibrant setting.",
+    "rating": 4.5,
+    "reviewCount": 600,
+    "priceLevel": 2,
+    "isOpen": true,
+    "address": "5100 York Blvd, Los Angeles, CA 90042",
+    "icon": "🍽️"
+  },                              
+  {
     "id": "restaurants-1--1184026270191-340670852157",
     "coordinates": [
       -118.4027055189076,
@@ -445,22 +637,6 @@ export const pois: POI[] = [
     "priceLevel": 3,
     "isOpen": true,
     "address": "608 Wilshire Blvd",
-    "icon": "🍽️"
-  },
-  {
-    "id": "restaurants-2--1183043299931-340617312281",
-    "coordinates": [
-      -118.30429402393118,
-      34.061824999277434
-    ],
-    "category": "restaurants",
-    "name": "Taste of LA",
-    "description": "Modern American cuisine",
-    "rating": 4.2,
-    "reviewCount": 58,
-    "priceLevel": 1,
-    "isOpen": true,
-    "address": "411 Wilshire Blvd",
     "icon": "🍽️"
   },
   {
@@ -480,22 +656,6 @@ export const pois: POI[] = [
     "icon": "🍽️"
   },
   {
-    "id": "restaurants-1--118479599-34028999",
-    "coordinates": [
-      -118.4795893541411,
-      34.02906918431129
-    ],
-    "category": "restaurants",
-    "name": "Taste of LA",
-    "description": "Local favorite eatery",
-    "rating": 3.8,
-    "reviewCount": 178,
-    "priceLevel": 2,
-    "isOpen": true,
-    "address": "1069 Wilshire Blvd",
-    "icon": "🍽️"
-  },
-  {
     "id": "restaurants-2--11844578-34047209",
     "coordinates": [
       -118.44574393699355,
@@ -512,51 +672,133 @@ export const pois: POI[] = [
     "icon": "🍽️"
   },
   {
-    "id": "restaurants-0--11841953-34029929",
-    "coordinates": [
-      -118.41945693850371,
-      34.030016952751645
-    ],
+    "id": "restaurants-1--1184957991-340131113",
+    "coordinates": [-118.4957991, 34.0131113],
     "category": "restaurants",
-    "name": "Taste of LA",
-    "description": "Modern American cuisine",
-    "rating": 5,
-    "reviewCount": 212,
+    "name": "KazuNori – The Original Hand Roll Bar",
+    "description": "A minimalist sushi bar specializing in freshly made hand rolls with warm rice and crisp nori.",
+    "rating": 4.7,
+    "reviewCount": 500,
+    "priceLevel": 2,
+    "isOpen": true,
+    "address": "120 Broadway, Los Angeles, CA 90012",
+    "icon": "🍽️"
+  },
+  {
+    "id": "restaurants-1--1184390106-3404922103881",
+    "coordinates": [-118.43901062011719, 34.04922103881836],
+    "category": "restaurants",
+    "name": "Sichuan Impression",
+    "description": "Authentic Sichuan cuisine offering bold flavors and traditional dishes in a contemporary setting.",
+    "rating": 4.0,
+    "reviewCount": 15,
+    "priceLevel": 2,
+    "isOpen": true,
+    "address": "11057 Santa Monica Blvd, Los Angeles, CA 90025",
+    "icon": "🍽️"
+  },
+  {
+    "id": "restaurants-1--1184468728-340629463",
+    "coordinates": [-118.4468728, 34.0629463],
+    "category": "restaurants",
+    "name": "Mr. Noodle",
+    "description": "Casual eatery serving a variety of Asian noodle dishes and fusion cuisine.",
+    "rating": 4.7,
+    "reviewCount": 500,
+    "priceLevel": 1,
+    "isOpen": true,
+    "address": "936 Broxton Ave, Los Angeles, CA 90024",
+    "icon": "🍜"
+  },
+  {
+    "id": "restaurants-1--1184467927-340622865",
+    "coordinates": [-118.4467927, 34.0622865],
+    "category": "restaurants",
+    "name": "Mr. Rice",
+    "description": "Chinese restaurant offering a variety of rice dishes and traditional entrees.",
+    "rating": 4.8,
+    "reviewCount": 1000,
+    "priceLevel": 1,
+    "isOpen": true,
+    "address": "1010 Broxton Ave, Los Angeles, CA 90024",
+    "icon": "🍽️"
+  },
+  {
+    "id": "restaurants-1--1184474139-340623982",
+    "coordinates": [-118.4474139, 34.0623982],
+    "category": "restaurants",
+    "name": "Northern Cafe",
+    "description": "Chinese restaurant known for its dumplings and Northern Chinese specialties.",
+    "rating": 4.1,
+    "reviewCount": 17,
+    "priceLevel": 2,
+    "isOpen": true,
+    "address": "8459 Beverly Blvd, Los Angeles, CA 90048",
+    "icon": "🍽️"
+  },
+  {
+    "id": "restaurants-1--1183387469-340833739",
+    "coordinates": [-118.3387469, 34.0833739],
+    "category": "restaurants",
+    "name": "Oste",
+    "description": "Italian restaurant offering Roman-inspired dishes with a focus on traditional flavors.",
+    "rating": 4.6,
+    "reviewCount": 1200,
+    "priceLevel": 2,
+    "isOpen": true,
+    "address": "8142 W 3rd St, Los Angeles, CA 90048",
+    "icon": "🍽️"
+  },
+  {
+    "id": "restaurants-1--1183478496-340835968",
+    "coordinates": [-118.3478496, 34.0835968],
+    "category": "restaurants",
+    "name": "Roots Indian Bistro",
+    "description": "Upscale Indian bistro serving a mix of traditional and fusion dishes in a cozy setting.",
+    "rating": 4.9,
+    "reviewCount": 165,
+    "priceLevel": 2,
+    "isOpen": true,
+    "address": "7265 Melrose Ave, Los Angeles, CA 90046",
+    "icon": "🍽️"
+  },
+  {
+    "id": "restaurants-1--1183991691-340642414",
+    "coordinates": [-118.3991691, 34.0642414],
+    "category": "restaurants",
+    "name": "Chubby Curry",
+    "description": "Japanese curry house offering rich and flavorful curries with a variety of toppings.",
+    "rating": 4.8,
+    "reviewCount": 88,
+    "priceLevel": 2,
+    "isOpen": true,
+    "address": "225 S Beverly Dr, Beverly Hills, CA 90212",
+    "icon": "🍽️"
+  },
+  {
+    "id": "restaurants-1--1183813639-340245954",
+    "coordinates": [-118.3813639, 34.0245954],
+    "category": "restaurants",
+    "name": "Destroyer LA",
+    "description": "Modern cafe offering innovative dishes with a focus on seasonal ingredients.",
+    "rating": 4.5,
+    "reviewCount": 300,
     "priceLevel": 3,
     "isOpen": true,
-    "address": "713 Wilshire Blvd",
+    "address": "3578 Hayden Ave, Culver City, CA 90232",
     "icon": "🍽️"
   },
   {
-    "id": "restaurants-1--11843138-3404348",
-    "coordinates": [
-      -118.43139608442259,
-      34.043522998389534
-    ],
+    "id": "restaurants-1--118343766-340641583",
+    "coordinates": [-118.343766, 34.0641583],
     "category": "restaurants",
-    "name": "Taste of LA",
-    "description": "Local favorite eatery",
-    "rating": 5.3,
-    "reviewCount": 243,
-    "priceLevel": 1,
+    "name": "République Cafe",
+    "description": "French-inspired cafe and bakery offering pastries, brunch, and dinner in a historic setting.",
+    "rating": 4.6,
+    "reviewCount": 2500,
+    "priceLevel": 3,
     "isOpen": true,
-    "address": "326 Wilshire Blvd",
-    "icon": "🍽️"
-  },
-  {
-    "id": "restaurants-2--11844073-340541",
-    "coordinates": [
-      -118.44073553568776,
-      34.05407381948273
-    ],
-    "category": "restaurants",
-    "name": "Taste of LA",
-    "description": "Modern American cuisine",
-    "rating": 5,
-    "reviewCount": 215,
-    "priceLevel": 1,
-    "isOpen": true,
-    "address": "549 Wilshire Blvd",
+    "address": "624 S La Brea Ave, Los Angeles, CA 90005",
     "icon": "🍽️"
   }
 ];
