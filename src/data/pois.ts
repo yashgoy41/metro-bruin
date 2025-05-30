@@ -70,8 +70,7 @@ export const pois: POI[] = [
     "id": "cafe-espresso-profeta",
     "name": "Espresso Profeta",
     "coordinates": [
-      -118.44349670410156,
-      34.0599250793457
+      34.06031180019331, -118.44418934559147
     ],
     "category": "cafes",
     "description": "Artisanal coffee and espresso bar",
@@ -86,7 +85,7 @@ export const pois: POI[] = [
     "id": "cafe-ministry-coffee",
     "name": "Ministry of Coffee",
     "coordinates": [
-      34.06189704308253, -118.44397834210218
+      34.06659141892788, -118.44607121995098
     ],
     "category": "cafes",
     "description": "Popular local coffee spot in Westwood",
