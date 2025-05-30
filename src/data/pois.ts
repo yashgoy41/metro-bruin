@@ -70,7 +70,7 @@ export const pois: POI[] = [
     "id": "cafe-espresso-profeta",
     "name": "Espresso Profeta",
     "coordinates": [
-      34.06031180019331, -118.44418934559147
+      -118.44418934559147,34.06031180019331
     ],
     "category": "cafes",
     "description": "Artisanal coffee and espresso bar",
@@ -85,7 +85,7 @@ export const pois: POI[] = [
     "id": "cafe-ministry-coffee",
     "name": "Ministry of Coffee",
     "coordinates": [
-      34.06659141892788, -118.44607121995098
+      -118.4439842461533, 34.06189906485298
     ],
     "category": "cafes",
     "description": "Popular local coffee spot in Westwood",
@@ -99,7 +99,7 @@ export const pois: POI[] = [
     {
     id: "cafe-rabbits-coffee",
     name: "Rabbits Coffee",
-    coordinates: [-118.3855, 34.0522],
+    coordinates: [-118.3837656763606, 34.05370809696641],
     category: "cafes",
     description: "Cozy café offering classic coffee beverages and light snacks.",
     rating: 4.8,
@@ -112,7 +112,7 @@ export const pois: POI[] = [
   {
     id: "cafe-la-la-land-kind-cafe",
     name: "La La Land Kind Cafe",
-    coordinates: [-118.3605, 34.0722],
+    coordinates: [ -118.49370775964431, 34.033470148581266],
     category: "cafes",
     description: "Mission-driven café promoting kindness with a variety of coffee and matcha drinks.",
     rating: 4.5,
@@ -125,7 +125,7 @@ export const pois: POI[] = [
   {
     id: "cafe-10-speed-coffee-sm",
     name: "10 Speed Coffee (Santa Monica)",
-    coordinates: [-118.4814, 34.0266],
+    coordinates: [-118.48040953032718, 34.02910270650924],
     category: "cafes",
     description: "Cycling-themed café offering ethically sourced, small-batch roasted coffee.",
     rating: 4.6,
@@ -138,7 +138,7 @@ export const pois: POI[] = [
   {
     id: "cafe-10-speed-coffee-sawtelle",
     name: "10 Speed Coffee (Sawtelle)",
-    coordinates: [-118.4423, 34.0458],
+    coordinates: [ -118.44407621868868, 34.04138524967458],
     category: "cafes",
     description: "Vibrant café in Sawtelle Japantown with a focus on community and quality coffee.",
     rating: 4.8,
@@ -151,7 +151,7 @@ export const pois: POI[] = [
   {
     id: "cafe-series-a-coffee",
     name: "Series A Coffee",
-    coordinates: [-118.3721, 34.0635],
+    coordinates: [-118.37281244567076, 34.064305291297785],
     category: "cafes",
     description: "Trendy café offering Asian-inspired coffee creations in a modern setting.",
     rating: 5.0,
@@ -164,7 +164,7 @@ export const pois: POI[] = [
   {
     id: "cafe-maru-espresso-bar",
     name: "Maru Espresso Bar",
-    coordinates: [-118.4004, 34.0689],
+    coordinates: [-118.398278514980879, 34.068092022778984],
     category: "cafes",
     description: "Minimalist café focusing on high-quality espresso drinks and a serene atmosphere.",
     rating: 4.7,
@@ -177,7 +177,7 @@ export const pois: POI[] = [
   {
     id: "cafe-coffee-tomo",
     name: "Coffee Tomo",
-    coordinates: [-118.4431, 34.0453],
+    coordinates: [ -118.44288434131597, 34.039546700551114],
     category: "cafes",
     description: "Specialty coffee shop known for in-house roasted beans and artisanal pastries.",
     rating: 4.3,
@@ -190,7 +190,7 @@ export const pois: POI[] = [
   {
     id: "cafe-tartine-sm",
     name: "Tartine Santa Monica",
-    coordinates: [-118.4814, 34.0266],
+    coordinates: [-118.48222894453033, 34.03002930753509],
     category: "cafes",
     description: "Bakery and café offering rustic pastries and wood-fired bread in a cozy setting.",
     rating: 3.8,
@@ -203,7 +203,7 @@ export const pois: POI[] = [
   {
     id: "cafe-sipp-coffee-house",
     name: "Sipp Coffee House",
-    coordinates: [-118.3765, 34.0639],
+    coordinates: [-118.44148392192116,34.05477399215926],
     category: "cafes",
     description: "Modern café serving a variety of coffee drinks in a relaxed environment.",
     rating: 4.4,
@@ -216,7 +216,7 @@ export const pois: POI[] = [
   {
     id: "cafe-lokl-haus",
     name: "Lokl Haus",
-    coordinates: [-118.4716, 34.0195],
+    coordinates: [-118.47385800333149,34.033953689272536],
     category: "cafes",
     description: "Community-focused café offering specialty coffee and a welcoming atmosphere.",
     rating: 4.6,
@@ -229,7 +229,7 @@ export const pois: POI[] = [
   {
     id: "cafe-tilt-coffee-bar",
     name: "Tilt Coffee Bar",
-    coordinates: [-118.2531, 34.0469],
+    coordinates: [-118.41466360334327, 34.05812748464429],
     category: "cafes",
     description: "Sleek café known for its minimalist design and high-quality espresso drinks.",
     rating: 4.5,
@@ -242,7 +242,7 @@ export const pois: POI[] = [
   {
     id: "cafe-chamberlain-coffee",
     name: "Chamberlain Coffee",
-    coordinates: [-118.3750, 34.0703],
+    coordinates: [-118.41821652172567, 34.05857128243539],
     category: "cafes",
     description: "Trendy café offering a variety of coffee blends in a stylish setting.",
     rating: 4.2,
@@ -255,7 +255,7 @@ export const pois: POI[] = [
   {
     id: "cafe-avva-coffee",
     name: "Avva Coffee",
-    coordinates: [-118.3822, 34.0527],
+    coordinates: [-118.4052041168342,34.070189573156085],
     category: "cafes",
     description: "Chic café serving specialty coffee drinks and light bites.",
     rating: 4.3,
