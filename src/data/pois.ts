@@ -1,4 +1,4 @@
-better. import { POI } from '@/types/metro';
+import { POI } from '@/types/metro';
 
 export const pois: POI[] = [
   {
