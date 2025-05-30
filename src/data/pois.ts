@@ -268,7 +268,7 @@ export const pois: POI[] = [
     {
     id: "cafe-board-house-coffee",
     name: "Board House Coffee",
-    coordinates: [-118.4605, 34.0458],
+    coordinates: [-118.46080700248004, 34.04186624280033],
     category: "cafes",
     description: "Surf-inspired café offering specialty coffee and fresh pastries.",
     rating: 4.5,
@@ -281,7 +281,7 @@ export const pois: POI[] = [
   {
     id: "cafe-alchemist-coffee-project",
     name: "Alchemist Coffee Project",
-    coordinates: [-118.2917, 34.0584],
+    coordinates: [-118.29139573790887,34.06016800076832],
     category: "cafes",
     description: "Koreatown café known for its artful espresso drinks and cozy ambiance.",
     rating: 4.6,
@@ -289,12 +289,12 @@ export const pois: POI[] = [
     priceLevel: 2,
     isOpen: true,
     address: "698 S Vermont Ave Ste 103, Los Angeles, CA 90005",
-    icon: "☕"
+    icon: "☕",
   },
   {
     id: "cafe-cha-cha-matcha-century-city",
     name: "Cha Cha Matcha (Century City)",
-    coordinates: [-118.4170, 34.0595],
+    coordinates: [-118.41885110959043, 34.05898501822539],
     category: "cafes",
     description: "Vibrant café specializing in matcha beverages and pastries.",
     rating: 4.3,
@@ -307,7 +307,7 @@ export const pois: POI[] = [
   {
     id: "cafe-file-systems-of-coffee",
     name: "File Systems of Coffee",
-    coordinates: [-118.3270, 34.0832],
+    coordinates: [-118.33218387826926, 34.0836304409708],
     category: "cafes",
     description: "Artistic café offering unique brews in a minimalist setting.",
     rating: 4.7,
@@ -320,7 +320,7 @@ export const pois: POI[] = [
   {
     id: "cafe-equator-coffees-culver-city",
     name: "Equator Coffees (Culver City)",
-    coordinates: [-118.3841, 34.0266],
+    coordinates: [118.38891435684937, 34.02839545932042],
     category: "cafes",
     description: "Sustainable coffee roaster serving ethically sourced brews.",
     rating: 4.5,
@@ -333,7 +333,7 @@ export const pois: POI[] = [
   {
     id: "cafe-eyes-peeled-coffee",
     name: "Eyes Peeled Coffee",
-    coordinates: [-118.3855, 34.0307],
+    coordinates: [-118.38921911975058, 34.03604460814882],
     category: "cafes",
     description: "Bright café known for specialty coffee and acai bowls.",
     rating: 4.6,
@@ -346,7 +346,7 @@ export const pois: POI[] = [
   {
     id: "cafe-mudwtr-gather",
     name: "MUD\WTR :gather",
-    coordinates: [-118.4837, 34.0059],
+    coordinates: [-118.48417401921381, 34.00303725438745],
     category: "cafes",
     description: "Mindfulness studio and café offering coffee alternatives and wellness events.",
     rating: 4.3,
@@ -360,8 +360,7 @@ export const pois: POI[] = [
     "id": "museum-hammer",
     "name": "Hammer Museum",
     "coordinates": [
-      -118.4444,
-      34.0585
+      -118.44367582059729, 34.05909627633695
     ],
     "category": "museums",
     "description": "Contemporary art museum featuring rotating exhibitions",
