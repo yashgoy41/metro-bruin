@@ -4,7 +4,7 @@ export const pois: POI[] = [
   {
     id: "cafe-bonsai-coffee-bar",
     name: "Bonsai Coffee Bar",
-    coordinates: [-118.4481, 34.0453],
+    coordinates: [-118.453780, 34.04500],
     category: "cafes",
     description: "Asian-inspired café offering espresso, matcha, and pastries.",
     rating: 4.7,
@@ -17,7 +17,7 @@ export const pois: POI[] = [
   {
     id: "cafe-caffe-luxxe-brentwood",
     name: "Caffe Luxxe (Brentwood)",
-    coordinates: [-118.4689, 34.0533],
+    coordinates: [-118.463148, 34.053430],
     category: "cafes",
     description: "Artisan coffee roaster serving European-style espresso drinks.",
     rating: 4.5,
@@ -30,7 +30,7 @@ export const pois: POI[] = [
   {
     id: "cafe-malou-coffee",
     name: "Malou Coffee",
-    coordinates: [-118.4722, 34.0581],
+    coordinates: [-118.464813, 34.0530748],
     category: "cafes",
     description: "Cozy café offering single-origin coffees and Uji matcha.",
     rating: 4.6,
@@ -43,7 +43,7 @@ export const pois: POI[] = [
   {
     id: "cafe-bodega-wine-bar",
     name: "Bodega Wine Bar",
-    coordinates: [-118.4912, 34.0173],
+    coordinates: [-118.4893987, 34.0183507],
     category: "cafes",
     description: "Chic lounge offering coffee, wine, and light fare.",
     rating: 4.1,
@@ -54,22 +54,9 @@ export const pois: POI[] = [
     icon: "☕"
   },
   {
-    id: "cafe-philz-coffee-santa-monica",
-    name: "Philz Coffee (Santa Monica)",
-    coordinates: [-118.4941, 34.0195],
-    category: "cafes",
-    description: "Specialty coffee shop known for customized blends.",
-    rating: 4.5,
-    reviewCount: 62,
-    priceLevel: 2,
-    isOpen: false,
-    address: "525 Santa Monica Blvd, Santa Monica, CA 90401",
-    icon: "☕"
-  },
-  {
     id: "cafe-goodboybob-santa-monica",
     name: "goodboybob (Santa Monica)",
-    coordinates: [-118.4837, 34.0199],
+    coordinates: [-118.4761783, 34.0281368],
     category: "cafes",
     description: "Award-winning coffee roaster with a focus on sustainability.",
     rating: 4.7,
@@ -83,8 +70,8 @@ export const pois: POI[] = [
     "id": "cafe-espresso-profeta",
     "name": "Espresso Profeta",
     "coordinates": [
-      -118.4431,
-      34.0603
+      -118.44349670410156,
+      34.0599250793457
     ],
     "category": "cafes",
     "description": "Artisanal coffee and espresso bar",
@@ -99,8 +86,8 @@ export const pois: POI[] = [
     "id": "cafe-ministry-coffee",
     "name": "Ministry of Coffee",
     "coordinates": [
-      -118.4434,
-      34.0593
+      -118.4439902,
+      34.0622505
     ],
     "category": "cafes",
     "description": "Popular local coffee spot in Westwood",
