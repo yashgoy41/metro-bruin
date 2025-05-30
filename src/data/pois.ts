@@ -599,22 +599,6 @@ export const pois: POI[] = [
     "icon": "🍽️"
   },
   {
-    "id": "restaurants-2--1183043299931-340617312281",
-    "coordinates": [
-      -118.30429402393118,
-      34.061824999277434
-    ],
-    "category": "restaurants",
-    "name": "Taste of LA",
-    "description": "Modern American cuisine",
-    "rating": 4.2,
-    "reviewCount": 58,
-    "priceLevel": 1,
-    "isOpen": true,
-    "address": "411 Wilshire Blvd",
-    "icon": "🍽️"
-  },
-  {
     "id": "restaurants-0--118489029-34008409",
     "coordinates": [
       -118.48894808193798,
@@ -628,22 +612,6 @@ export const pois: POI[] = [
     "priceLevel": 2,
     "isOpen": true,
     "address": "615 Wilshire Blvd",
-    "icon": "🍽️"
-  },
-  {
-    "id": "restaurants-1--118479599-34028999",
-    "coordinates": [
-      -118.4795893541411,
-      34.02906918431129
-    ],
-    "category": "restaurants",
-    "name": "Taste of LA",
-    "description": "Local favorite eatery",
-    "rating": 3.8,
-    "reviewCount": 178,
-    "priceLevel": 2,
-    "isOpen": true,
-    "address": "1069 Wilshire Blvd",
     "icon": "🍽️"
   },
   {
@@ -663,51 +631,133 @@ export const pois: POI[] = [
     "icon": "🍽️"
   },
   {
-    "id": "restaurants-0--11841953-34029929",
-    "coordinates": [
-      -118.41945693850371,
-      34.030016952751645
-    ],
+    "id": "restaurants-1--1184957991-340131113",
+    "coordinates": [-118.4957991, 34.0131113],
     "category": "restaurants",
-    "name": "Taste of LA",
-    "description": "Modern American cuisine",
-    "rating": 5,
-    "reviewCount": 212,
+    "name": "KazuNori – The Original Hand Roll Bar",
+    "description": "A minimalist sushi bar specializing in freshly made hand rolls with warm rice and crisp nori.",
+    "rating": 4.7,
+    "reviewCount": 500,
+    "priceLevel": 2,
+    "isOpen": true,
+    "address": "120 Broadway, Los Angeles, CA 90012",
+    "icon": "🍽️"
+  },
+  {
+    "id": "restaurants-1--1184390106-3404922103881",
+    "coordinates": [-118.43901062011719, 34.04922103881836],
+    "category": "restaurants",
+    "name": "Sichuan Impression",
+    "description": "Authentic Sichuan cuisine offering bold flavors and traditional dishes in a contemporary setting.",
+    "rating": 4.0,
+    "reviewCount": 15,
+    "priceLevel": 2,
+    "isOpen": true,
+    "address": "11057 Santa Monica Blvd, Los Angeles, CA 90025",
+    "icon": "🍽️"
+  },
+  {
+    "id": "restaurants-1--1184468728-340629463",
+    "coordinates": [-118.4468728, 34.0629463],
+    "category": "restaurants",
+    "name": "Mr. Noodle",
+    "description": "Casual eatery serving a variety of Asian noodle dishes and fusion cuisine.",
+    "rating": 4.7,
+    "reviewCount": 500,
+    "priceLevel": 1,
+    "isOpen": true,
+    "address": "936 Broxton Ave, Los Angeles, CA 90024",
+    "icon": "🍜"
+  },
+  {
+    "id": "restaurants-1--1184467927-340622865",
+    "coordinates": [-118.4467927, 34.0622865],
+    "category": "restaurants",
+    "name": "Mr. Rice",
+    "description": "Chinese restaurant offering a variety of rice dishes and traditional entrees.",
+    "rating": 4.8,
+    "reviewCount": 1000,
+    "priceLevel": 1,
+    "isOpen": true,
+    "address": "1010 Broxton Ave, Los Angeles, CA 90024",
+    "icon": "🍽️"
+  },
+  {
+    "id": "restaurants-1--1184474139-340623982",
+    "coordinates": [-118.4474139, 34.0623982],
+    "category": "restaurants",
+    "name": "Northern Cafe",
+    "description": "Chinese restaurant known for its dumplings and Northern Chinese specialties.",
+    "rating": 4.1,
+    "reviewCount": 17,
+    "priceLevel": 2,
+    "isOpen": true,
+    "address": "8459 Beverly Blvd, Los Angeles, CA 90048",
+    "icon": "🍽️"
+  },
+  {
+    "id": "restaurants-1--1183387469-340833739",
+    "coordinates": [-118.3387469, 34.0833739],
+    "category": "restaurants",
+    "name": "Oste",
+    "description": "Italian restaurant offering Roman-inspired dishes with a focus on traditional flavors.",
+    "rating": 4.6,
+    "reviewCount": 1200,
+    "priceLevel": 2,
+    "isOpen": true,
+    "address": "8142 W 3rd St, Los Angeles, CA 90048",
+    "icon": "🍽️"
+  },
+  {
+    "id": "restaurants-1--1183478496-340835968",
+    "coordinates": [-118.3478496, 34.0835968],
+    "category": "restaurants",
+    "name": "Roots Indian Bistro",
+    "description": "Upscale Indian bistro serving a mix of traditional and fusion dishes in a cozy setting.",
+    "rating": 4.9,
+    "reviewCount": 165,
+    "priceLevel": 2,
+    "isOpen": true,
+    "address": "7265 Melrose Ave, Los Angeles, CA 90046",
+    "icon": "🍽️"
+  },
+  {
+    "id": "restaurants-1--1183991691-340642414",
+    "coordinates": [-118.3991691, 34.0642414],
+    "category": "restaurants",
+    "name": "Chubby Curry",
+    "description": "Japanese curry house offering rich and flavorful curries with a variety of toppings.",
+    "rating": 4.8,
+    "reviewCount": 88,
+    "priceLevel": 2,
+    "isOpen": true,
+    "address": "225 S Beverly Dr, Beverly Hills, CA 90212",
+    "icon": "🍽️"
+  },
+  {
+    "id": "restaurants-1--1183813639-340245954",
+    "coordinates": [-118.3813639, 34.0245954],
+    "category": "restaurants",
+    "name": "Destroyer LA",
+    "description": "Modern cafe offering innovative dishes with a focus on seasonal ingredients.",
+    "rating": 4.5,
+    "reviewCount": 300,
     "priceLevel": 3,
     "isOpen": true,
-    "address": "713 Wilshire Blvd",
+    "address": "3578 Hayden Ave, Culver City, CA 90232",
     "icon": "🍽️"
   },
   {
-    "id": "restaurants-1--11843138-3404348",
-    "coordinates": [
-      -118.43139608442259,
-      34.043522998389534
-    ],
+    "id": "restaurants-1--118343766-340641583",
+    "coordinates": [-118.343766, 34.0641583],
     "category": "restaurants",
-    "name": "Taste of LA",
-    "description": "Local favorite eatery",
-    "rating": 5.3,
-    "reviewCount": 243,
-    "priceLevel": 1,
+    "name": "République Cafe",
+    "description": "French-inspired cafe and bakery offering pastries, brunch, and dinner in a historic setting.",
+    "rating": 4.6,
+    "reviewCount": 2500,
+    "priceLevel": 3,
     "isOpen": true,
-    "address": "326 Wilshire Blvd",
-    "icon": "🍽️"
-  },
-  {
-    "id": "restaurants-2--11844073-340541",
-    "coordinates": [
-      -118.44073553568776,
-      34.05407381948273
-    ],
-    "category": "restaurants",
-    "name": "Taste of LA",
-    "description": "Modern American cuisine",
-    "rating": 5,
-    "reviewCount": 215,
-    "priceLevel": 1,
-    "isOpen": true,
-    "address": "549 Wilshire Blvd",
+    "address": "624 S La Brea Ave, Los Angeles, CA 90005",
     "icon": "🍽️"
   }
 ];
