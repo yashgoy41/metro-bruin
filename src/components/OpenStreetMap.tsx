@@ -33,7 +33,8 @@ const OpenStreetMap = () => {
     mapCenter, 
     setMapCenter,
     setVisibleRoutes,
-    setSelectedBusStop
+    setSelectedBusStop,
+    selectedBusStop
   } = useMetro();
 
   // Convert [lng, lat] to [lat, lng] for Leaflet
@@ -342,15 +343,43 @@ const OpenStreetMap = () => {
         // Draw stops only for selected route
         if (isSelected) {
           line.stops.forEach(stop => {
+            const isStopSelected = selectedBusStop?.id === stop.id;
+            console.log(selectedBusStop)
             const stopMarker = L.circleMarker(convertCoordinates(stop.coordinates), {
               color: line.color,
-              fillColor: '#FFFFFF',
+              fillColor: isStopSelected ? '#FFD700' : '#FFFFFF', // Highlight selected stop with gold color
               fillOpacity: 1,
-              radius: 5,
+              radius: isStopSelected ? 8 : 5, // Increase radius for selected stop
               weight: 2,
               opacity: 1,
               pane: 'selectedRoute'
             }).addTo(map.current!);
+
+            // if (isStopSelected) {
+            //   const mapIcon = L.divIcon({
+            //     html: `<div style="
+            //       width: 24px; 
+            //       height: 24px; 
+            //       background: #FFD700; 
+            //       border-radius: 50%; 
+            //       display: flex; 
+            //       align-items: center; 
+            //       justify-content: center; 
+            //       box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            //       font-size: 16px;
+            //       color: white;
+            //     ">📍</div>`,
+            //     className: 'selected-stop-icon',
+            //     iconSize: [24, 24],
+            //     iconAnchor: [12, 12],
+            //     popupAnchor: [0, -12]
+            //   });
+
+            //   L.marker(convertCoordinates(stop.coordinates), {
+            //     icon: mapIcon,
+            //     pane: 'selectedRoute'
+            //   }).addTo(map.current!);
+            // }
 
             stopMarker.on('click', () => {
               setSelectedBusStop(stop);
@@ -362,7 +391,7 @@ const OpenStreetMap = () => {
         }
       });
     });
-  }, [busLines, selectedRoute, setSelectedRoute, setSelectedPOI, setSelectedBusStop, setMapCenter]);
+  }, [busLines, selectedRoute, setSelectedRoute, setSelectedPOI, setMapCenter, selectedBusStop]);
 
   // Update POI markers
   useEffect(() => {

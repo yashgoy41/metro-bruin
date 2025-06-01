@@ -18,6 +18,7 @@ const POIDetailSheet = () => {
     previousRoute, 
     setPreviousRoute,
     setSelectedRoute,
+    setSelectedBusStop
   } = useMetro();
   const { getRouteDirections } = TransitRouter();
 
@@ -42,7 +43,8 @@ const POIDetailSheet = () => {
         }
       });
     });
-
+    
+    setSelectedBusStop(nearestStop);
     setSelectedRoute(associatedLine);
 
     return { stop: nearestStop, line: associatedLine };
@@ -73,6 +75,7 @@ const POIDetailSheet = () => {
 
   const handleClose = () => {
     setSelectedRoute(null);
+    setSelectedBusStop(null);
     setSelectedPOI(null);
     
     // If there was a previous route, restore it (this will make the route sheet visible again)
@@ -123,11 +126,6 @@ const POIDetailSheet = () => {
                     </div>
                   </div>
                 </div>
-                <img 
-                  src={selectedPOI.image} 
-                  alt={selectedPOI.name} 
-                  className="w-full h-32 object-cover rounded-lg mb-2"
-                />
               </div>
               <button
                 onClick={handleClose}
@@ -137,43 +135,53 @@ const POIDetailSheet = () => {
               </button>
             </div>
 
-            {/* Description */}
-            <p className="text-gray-700 mb-4">{selectedPOI.description}</p>
 
-            {/* Address */}
-            <div className="flex items-center text-gray-600">
-              <MapPin className="w-4 h-4 mr-2" />
-              <span>{selectedPOI.address}</span>
+
+            <div className="flex">
+              <div className="" style={{ width: '90%' }}>
+                {/* Description */}
+                <p className="text-gray-700 mb-4">{selectedPOI.description}</p>
+
+                {/* Address */}
+                <div className="flex items-center text-gray-600">
+                  <MapPin className="w-4 h-4 mr-2" />
+                  <span>{selectedPOI.address}</span>
+                </div>
+
+                {/* Nearest Bus Stop */}
+                <div className="flex items-center mt-2 text-gray-600">
+                  <MapPin className="w-4 h-4 mr-2" />
+                  <span>
+                    Nearest Stop: {findNearestBusStop()?.stop?.name || 'No nearby stop found'} ({findNearestBusStop()?.line?.name || 'No associated line'})
+                  </span>
+                </div>
+
+                {selectedRoute && selectedRoute.id && selectedRoute.color ? (
+                  <motion.button
+                    key={selectedRoute.id}
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0, opacity: 0 }}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    className={`px-4 py-2 rounded-full text-white font-bold shadow-lg min-w-[60px] pointer-events-auto transition-all`}
+                    style={{ 
+                      backgroundColor: selectedRoute.color,
+                      '--tw-ring-color': selectedRoute.color
+                    } as any}
+                  >
+                    {selectedRoute.name}
+                  </motion.button>
+                ) : (
+                  <></>
+                )}
+              </div>
+              <img 
+                src={selectedPOI.image} 
+                alt={selectedPOI.name} 
+                className="w-full h-32 object-cover rounded-lg mb-2 ml-10"
+              />
             </div>
-
-            {/* Nearest Bus Stop */}
-            <div className="flex items-center mt-2 text-gray-600">
-              <MapPin className="w-4 h-4 mr-2" />
-              <span>
-                Nearest Stop: {findNearestBusStop()?.stop?.name || 'No nearby stop found'} ({findNearestBusStop()?.line?.name || 'No associated line'})
-              </span>
-            </div>
-
-            {selectedRoute && selectedRoute.id && selectedRoute.color ? (
-              <motion.button
-                key={selectedRoute.id}
-                initial={{ scale: 0, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0, opacity: 0 }}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                // onClick={() => handleRouteClick(line)}
-                className={`px-4 py-2 rounded-full text-white font-bold shadow-lg min-w-[60px] pointer-events-auto transition-all`}
-                style={{ 
-                  backgroundColor: selectedRoute.color,
-                  '--tw-ring-color': selectedRoute.color
-                } as any}
-              >
-                {selectedRoute.name}
-              </motion.button>
-            ) : (
-              <></>
-            )}
 
             {/* GO Button - Fixed position */}
             <Button

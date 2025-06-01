@@ -395,7 +395,7 @@ export const pois: POI[] = [
     isOpen: true,
     address: "2515 Main St, Santa Monica, CA 90405",
     icon: "☕",
-    image: "https://images.squarespace-cdn.com/content/v1/655100b54c023d4139e41375/96fdfd12-f281-4db3-8b0f-de4cd20958b8/Media.jpghttps://www.caffeluxxe.com/cdn/shop/files/bcm3_1600x.webp?v=1706037116"
+    image: "https://www.einpresswire.com/image/large/588408/mud-wtr-gather.jpeg"
   },
   {
     "id": "museum-hammer",
