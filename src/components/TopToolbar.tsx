@@ -26,12 +26,17 @@ const TopToolbar = () => {
             />
             <span className="truncate">MetroBruin</span>
           </h1>
+          
+          <div className="flex items-center text-sm font-medium flex-shrink-0 ml-2">
+            <MapPin size={20} className="mr-1 text-bettertrip-green flex-shrink-0" />
+            <span className="text-gray-800 font-bold">UCLA</span>
+          </div>
         </div>
       </div>
       
-      {/* Category Pills - Full width with proper padding */}
-      <div className="absolute top-[60px] left-0 right-0 z-[1000] px-4 pb-2 pointer-events-auto">
-        <div className="flex gap-2 overflow-x-auto scrollbar-hide w-full">
+      {/* Category Pills - Positioned to not overflow */}
+      <div className="absolute top-[60px] left-2 right-2 z-[1000] flex flex-row gap-2 pointer-events-auto">
+        <div className="flex gap-2 overflow-x-auto scrollbar-hide w-full px-2 pb-2">
           {categories.map((category) => (
             <button
               key={category.id}
@@ -46,14 +51,6 @@ const TopToolbar = () => {
               {category.label}
             </button>
           ))}
-        </div>
-      </div>
-
-      {/* Current Location - Below categories */}
-      <div className="absolute top-[110px] right-4 z-[1000] pointer-events-auto">
-        <div className="flex items-center text-sm font-medium bg-white rounded-full px-3 py-2 shadow-lg">
-          <MapPin size={16} className="mr-1 text-green-500 flex-shrink-0" />
-          <span className="text-gray-800 font-bold">UCLA</span>
         </div>
       </div>
     </>
