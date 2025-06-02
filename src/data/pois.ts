@@ -89,7 +89,7 @@ export const pois: POI[] = [
     "id": "cafe-espresso-profeta",
     "name": "Espresso Profeta",
     "coordinates": [
-      -118.44418934559147,34.06031180019331
+      -118.44418934559147, 34.06031180019331
     ],
     "category": "cafes",
     "description": "Artisanal coffee and espresso bar",
@@ -117,7 +117,7 @@ export const pois: POI[] = [
     "icon": "☕",
     "image": "https://wp.dailybruin.com/images/2017/11/web.ns_.ministryofcoffee.JP_.jpg",
   },
-    {
+  {
     id: "cafe-rabbits-coffee",
     name: "Rabbits Coffee",
     coordinates: [-118.3837656763606, 34.05370809696641],
@@ -134,7 +134,7 @@ export const pois: POI[] = [
   {
     id: "cafe-la-la-land-kind-cafe",
     name: "La La Land Kind Cafe",
-    coordinates: [ -118.49370775964431, 34.033470148581266],
+    coordinates: [-118.49370775964431, 34.033470148581266],
     category: "cafes",
     description: "Mission-driven café promoting kindness with a variety of coffee and matcha drinks.",
     rating: 4.5,
@@ -162,7 +162,7 @@ export const pois: POI[] = [
   {
     id: "cafe-10-speed-coffee-sawtelle",
     name: "10 Speed Coffee (Sawtelle)",
-    coordinates: [ -118.44407621868868, 34.04138524967458],
+    coordinates: [-118.44407621868868, 34.04138524967458],
     category: "cafes",
     description: "Vibrant café in Sawtelle Japantown with a focus on community and quality coffee.",
     rating: 4.8,
@@ -204,7 +204,7 @@ export const pois: POI[] = [
   {
     id: "cafe-coffee-tomo",
     name: "Coffee Tomo",
-    coordinates: [ -118.44288434131597, 34.039546700551114],
+    coordinates: [-118.44288434131597, 34.039546700551114],
     category: "cafes",
     description: "Specialty coffee shop known for in-house roasted beans and artisanal pastries.",
     rating: 4.3,
@@ -232,7 +232,7 @@ export const pois: POI[] = [
   {
     id: "cafe-sipp-coffee-house",
     name: "Sipp Coffee House",
-    coordinates: [-118.44148392192116,34.05477399215926],
+    coordinates: [-118.44148392192116, 34.05477399215926],
     category: "cafes",
     description: "Modern café serving a variety of coffee drinks in a relaxed environment.",
     rating: 4.4,
@@ -246,7 +246,7 @@ export const pois: POI[] = [
   {
     id: "cafe-lokl-haus",
     name: "Lokl Haus",
-    coordinates: [-118.47385800333149,34.033953689272536],
+    coordinates: [-118.47385800333149, 34.033953689272536],
     category: "cafes",
     description: "Community-focused café offering specialty coffee and a welcoming atmosphere.",
     rating: 4.6,
@@ -288,7 +288,7 @@ export const pois: POI[] = [
   {
     id: "cafe-avva-coffee",
     name: "Avva Coffee",
-    coordinates: [-118.4052041168342,34.070189573156085],
+    coordinates: [-118.4052041168342, 34.070189573156085],
     category: "cafes",
     description: "Chic café serving specialty coffee drinks and light bites.",
     rating: 4.3,
@@ -299,7 +299,7 @@ export const pois: POI[] = [
     icon: "☕",
     image: "https://s3-media0.fl.yelpcdn.com/bphoto/vuAKXIcWlrLOkCre4b3CMg/348s.jpg"
   },
-    {
+  {
     id: "cafe-board-house-coffee",
     name: "Board House Coffee",
     coordinates: [-118.46080700248004, 34.04186624280033],
@@ -316,7 +316,7 @@ export const pois: POI[] = [
   {
     id: "cafe-alchemist-coffee-project",
     name: "Alchemist Coffee Project",
-    coordinates: [-118.29139573790887,34.06016800076832],
+    coordinates: [-118.29139573790887, 34.06016800076832],
     category: "cafes",
     description: "Koreatown café known for its artful espresso drinks and cozy ambiance.",
     rating: 4.6,
@@ -358,7 +358,7 @@ export const pois: POI[] = [
   {
     id: "cafe-equator-coffees-culver-city",
     name: "Equator Coffees (Culver City)",
-    coordinates: [118.38891435684937, 34.02839545932042],
+    coordinates: [-118.38891435684937, 34.02839545932042],
     category: "cafes",
     description: "Sustainable coffee roaster serving ethically sourced brews.",
     rating: 4.5,
@@ -400,9 +400,7 @@ export const pois: POI[] = [
   {
     "id": "museum-hammer",
     "name": "Hammer Museum",
-    "coordinates": [
-      -118.44367582059729, 34.05909627633695
-    ],
+    "coordinates": [-118.44361, 34.05944],
     "category": "museums",
     "description": "Contemporary art museum featuring rotating exhibitions",
     "rating": 4.7,
@@ -410,7 +408,120 @@ export const pois: POI[] = [
     "priceLevel": 1,
     "isOpen": true,
     "address": "10899 Wilshire Blvd, Los Angeles, CA 90024",
-    "icon": "🎨"
+    "icon": "🎨",
+    "image": "https://imagenes.elpais.com/resizer/v2/LN5P4WNVOZEKTDPBMT3ITBPUXI.jpg?auth=65feb43542822b7827057d6112fd6a390f5d7b1bd125695f9565fbaa13b48fd5&width=1960&height=1103&focal=2150%2C2113"
+  },
+  {
+    "id": "museum-getty-center",
+    "name": "The Getty Center",
+    "coordinates": [-118.474, 34.078],
+    "category": "museums",
+    "description": "Hilltop museum featuring European art, architecture, and gardens",
+    "rating": 4.8,
+    "reviewCount": 1120,
+    "priceLevel": 1,
+    "isOpen": true,
+    "address": "1200 Getty Center Dr, Los Angeles, CA 90049",
+    "icon": "🎨",
+    "image": "https://losangelestraveler.com/wp-content/uploads/2022/11/getty-center-with-kids-9.jpg",
+  },
+  {
+    "id": "museum-broad",
+    "name": "The Broad",
+    "coordinates": [-118.250305, 34.054508],
+    "category": "museums",
+    "description": "Contemporary art museum with a striking honeycomb facade",
+    "rating": 4.7,
+    "reviewCount": 980,
+    "priceLevel": 1,
+    "isOpen": true,
+    "address": "221 S Grand Ave, Los Angeles, CA 90012",
+    "icon": "🎨",
+    "image": "https://media.architecturaldigest.com/photos/55e7662dcd709ad62e8e8006/master/pass/dam-images-architecture-2015-05-the-broad-museum-ty-cole-01.jpg"
+  },
+  {
+    "id": "museum-lacma",
+    "name": "Los Angeles County Museum of Art",
+    "coordinates": [-118.359, 34.0638],
+    "category": "museums",
+    "description": "Largest art museum in the western United States",
+    "rating": 4.6,
+    "reviewCount": 1500,
+    "priceLevel": 2,
+    "isOpen": true,
+    "address": "5905 Wilshire Blvd, Los Angeles, CA 90036",
+    "icon": "🎨",
+    "image": "https://drupal-prod.visitcalifornia.com/sites/default/files/styles/fluid_1920/public/2022-05/VC_LACMA_gty-589971642-RF_1280x640.jpg.webp?itok=9zyqM8V0"
+  },
+  {
+    "id": "museum-natural-history",
+    "name": "Natural History Museum of Los Angeles County",
+    "coordinates": [-118.28778, 34.01694],
+    "category": "museums",
+    "description": "Extensive natural history exhibits including dinosaur skeletons",
+    "rating": 4.7,
+    "reviewCount": 1300,
+    "priceLevel": 2,
+    "isOpen": true,
+    "address": "900 Exposition Blvd, Los Angeles, CA 90007",
+    "icon": "🎨",
+    "image": "https://www.sageoak.education/wp-content/uploads/Screenshot-2025-01-22-at-8.38.59%E2%80%AFAM.png"
+  },
+  {
+    "id": "museum-petersen",
+    "name": "Petersen Automotive Museum",
+    "coordinates": [-118.3617, 34.0629],
+    "category": "museums",
+    "description": "Automobile museum with a collection of classic and rare cars",
+    "rating": 4.6,
+    "reviewCount": 1100,
+    "priceLevel": 2,
+    "isOpen": true,
+    "address": "6060 Wilshire Blvd, Los Angeles, CA 90036",
+    "icon": "🎨",
+    "image": "https://ca-times.brightspotcdn.com/dims4/default/919c382/2147483647/strip/true/crop/2048x1363+0+0/resize/1200x799!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Fc0%2F3f%2F7793afed9663f40713114f6769f0%2Fla-et-cm-petersen-automotive-museum-review-201-003"
+  },
+  {
+    "id": "museum-academy",
+    "name": "Academy Museum of Motion Pictures",
+    "coordinates": [-118.3609, 34.0633],
+    "category": "museums",
+    "description": "Museum dedicated to the history and science of filmmaking",
+    "rating": 4.5,
+    "reviewCount": 900,
+    "priceLevel": 2,
+    "isOpen": true,
+    "address": "6067 Wilshire Blvd, Los Angeles, CA 90036",
+    "icon": "🎨",
+    "image": "https://cdn.vox-cdn.com/thumbor/xRrWVpHbM8P8OGdddv4eXx3FbCk=/0x967:3000x2538/fit-in/1200x630/cdn0.vox-cdn.com/uploads/chorus_asset/file/9340367/Academy_Museum_Aerial_Facing_South.jpg"
+  },
+  {
+    "id": "museum-moca",
+    "name": "Museum of Contemporary Art",
+    "coordinates": [-118.25083, 34.05333],
+    "category": "museums",
+    "description": "Contemporary art museum with diverse exhibitions",
+    "rating": 4.5,
+    "reviewCount": 850,
+    "priceLevel": 2,
+    "isOpen": true,
+    "address": "250 S Grand Ave, Los Angeles, CA 90012",
+    "icon": "🎨",
+    "image": "https://www.moca.org/storage/app/uploads/public/5e1/a09/083/thumb_9472_740_0_0_0_auto.jpg"
+  },
+  {
+    "id": "museum-griffith",
+    "name": "Griffith Observatory",
+    "coordinates": [-118.3004, 34.1184],
+    "category": "museums",
+    "description": "Iconic observatory with exhibits and telescopes",
+    "rating": 4.8,
+    "reviewCount": 2100,
+    "priceLevel": 0,
+    "isOpen": true,
+    "address": "2800 E Observatory Rd, Los Angeles, CA 90027",
+    "icon": "🎨",
+    "image": "https://griffithobservatory.org/wp-content/uploads/2021/03/cameron-venti-c5GkEd-j5vI-unsplash_noCautionTape.jpg"
   },
   {
     "id": "restaurants-0--1184520483331-34055797893",
@@ -622,7 +733,7 @@ export const pois: POI[] = [
     "isOpen": true,
     "address": "5100 York Blvd, Los Angeles, CA 90042",
     "icon": "🍽️"
-  },                              
+  },
   {
     "id": "restaurants-1--1184026270191-340670852157",
     "coordinates": [

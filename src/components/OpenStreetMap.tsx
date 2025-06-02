@@ -86,6 +86,7 @@ const OpenStreetMap = () => {
         button.style.backgroundColor = 'white';
         button.style.boxShadow = '0 2px 4px rgba(0,0,0,0.2)';
         button.style.cursor = 'pointer';
+        button.style.marginTop = '25px';
         button.title = 'Show my location';
 
         button.addEventListener('click', () => {
