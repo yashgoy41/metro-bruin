@@ -126,20 +126,6 @@ const OpenStreetMap = () => {
     }
   };
 
-  // Expose locate function to parent component
-  useEffect(() => {
-    if (map.current) {
-      // Make locate function available globally for the location button
-      (window as any).locateUser = () => {
-        map.current?.locate({ setView: true, maxZoom: 16 });
-      };
-    }
-
-    return () => {
-      delete (window as any).locateUser;
-    };
-  }, []);
-
   // Initialize map
   useEffect(() => {
     if (!mapContainer.current || map.current) return;
