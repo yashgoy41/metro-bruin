@@ -13,6 +13,12 @@ const TopToolbar = () => {
     { id: 'museums', label: 'Museums', icon: '🎨' }
   ];
 
+  const handleLocationClick = () => {
+    if ((window as any).locateUser) {
+      (window as any).locateUser();
+    }
+  };
+
   return (
     <>
       {/* Header */}
@@ -50,6 +56,31 @@ const TopToolbar = () => {
             {category.label}
           </button>
         ))}
+      </div>
+
+      {/* Location Button */}
+      <div className="absolute top-24 right-6 z-[1000] pointer-events-auto">
+        <button
+          onClick={handleLocationClick}
+          className="w-12 h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 flex items-center justify-center group"
+          title="Show my location"
+        >
+          <svg 
+            width="20" 
+            height="20" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            className="text-gray-700 group-hover:text-bettertrip-green transition-colors"
+          >
+            <path 
+              d="M7 17L17 7M17 7H7M17 7V17" 
+              stroke="currentColor" 
+              strokeWidth="2.5" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
       </div>
     </>
   );
