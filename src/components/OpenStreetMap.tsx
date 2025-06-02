@@ -5,6 +5,7 @@ import 'leaflet.markercluster/dist/leaflet.markercluster';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import { useMetro } from '@/contexts/MetroContext';
 import { POI, BusLine } from '@/types/metro';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 // Fix for default markers in Leaflet
 delete (L.Icon.Default.prototype as any)._getIconUrl;
@@ -36,6 +37,7 @@ const OpenStreetMap = () => {
     setSelectedBusStop,
     selectedBusStop
   } = useMetro();
+  const isMobile = useIsMobile();
 
   // Convert [lng, lat] to [lat, lng] for Leaflet
   const convertCoordinates = (coords: [number, number]): [number, number] => {
@@ -94,7 +96,7 @@ const OpenStreetMap = () => {
       }
     });
 
-    return new LocationControl({ position: 'bottomright' });
+    return new LocationControl({ position: 'topright' });
   };
 
   // Function to update location marker

@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useMotionValue, PanInfo } from 'framer-motion';
 import { X, Clock, ChevronRight, Star, MapPin, ArrowLeft } from 'lucide-react';
 import { useMetro } from '@/contexts/MetroContext';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const RouteDetailSheet = () => {
   const { 
@@ -18,6 +19,7 @@ const RouteDetailSheet = () => {
     setRouteSheetScrollPosition,
     selectedPOI
   } = useMetro();
+  const isMobile = useIsMobile();
   
   // Sheet drag states
   const sheetRef = useRef<HTMLDivElement>(null);
@@ -28,11 +30,11 @@ const RouteDetailSheet = () => {
   const [selectedStopId, setSelectedStopId] = useState<string | null>(null);
   const [highlightedStopId, setHighlightedStopId] = useState<string | null>(null);
 
-  // Snap points for the sheet (in vh)
+  // Snap points for the sheet (in vh) - adjusted for mobile
   const snapPoints = {
-    peek: '25vh',
-    default: '40vh', 
-    expanded: '70vh'
+    peek: isMobile ? '20vh' : '25vh',
+    default: isMobile ? '35vh' : '40vh', 
+    expanded: isMobile ? '75vh' : '70vh'
   };
 
   // Convert vh to pixels for calculations

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Star, MapPin, Clock, Navigation } from 'lucide-react';
@@ -135,8 +134,6 @@ const POIDetailSheet = () => {
               </button>
             </div>
 
-
-
             <div className="flex">
               <div className="" style={{ width: '90%' }}>
                 {/* Description */}
@@ -184,13 +181,15 @@ const POIDetailSheet = () => {
             </div>
 
             {/* GO Button - Fixed position */}
-            <Button
-              onClick={handleGoClick}
-              className="fixed bottom-6 right-6 bg-bettertrip-green hover:bg-bettertrip-green-hover text-white font-bold py-4 px-8 text-lg rounded-xl flex items-center justify-center shadow-lg"
-            >
-              <Navigation className="w-5 h-5 mr-2" />
-              GO
-            </Button>
+            <div className="fixed bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-white via-white to-transparent pointer-events-none z-[1003]">
+              <Button
+                onClick={handleGoClick}
+                className="w-full bg-bettertrip-green hover:bg-bettertrip-green-hover text-white font-bold py-4 px-8 text-lg rounded-xl flex items-center justify-center shadow-lg pointer-events-auto"
+              >
+                <Navigation className="w-5 h-5 mr-2" />
+                GO
+              </Button>
+            </div>
           </div>
         </motion.div>
       )}
