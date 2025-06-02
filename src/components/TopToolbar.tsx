@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { MapPin } from 'lucide-react';
 import { useMetro } from '@/contexts/MetroContext';
@@ -21,13 +22,13 @@ const TopToolbar = () => {
             <img 
               src="/lovable-uploads/fa2f59d0-1bbd-4815-8500-42e40de07c66.png" 
               alt="MetroBruin Logo" 
-              className="w-8 h-8 mr-3"
+              className="w-8 h-8 mr-3 flex-shrink-0"
             />
-            MetroBruin
+            <span className="truncate">MetroBruin</span>
           </h1>
           
-          <div className="flex items-center text-base font-medium">
-            <MapPin size={24} className="mr-2 text-bettertrip-green" />
+          <div className="flex items-center text-base font-medium flex-shrink-0">
+            <MapPin size={24} className="mr-2 text-bettertrip-green flex-shrink-0" />
             <span className="text-gray-800 font-bold">UCLA</span>
           </div>
         </div>
@@ -40,7 +41,7 @@ const TopToolbar = () => {
             <button
               key={category.id}
               onClick={() => setSelectedCategory(category.id)}
-              className={`px-4 py-2 rounded-full font-medium transition-all shadow-lg pointer-events-auto whitespace-nowrap flex-shrink-0 ${
+              className={`px-4 py-2 rounded-full font-medium transition-all shadow-lg pointer-events-auto whitespace-nowrap flex-shrink-0 min-h-[44px] flex items-center ${
                 selectedCategory === category.id
                   ? 'bg-blue-500 text-white'
                   : 'bg-white text-gray-700 hover:bg-gray-50'
