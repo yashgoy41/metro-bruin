@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -30,7 +31,7 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <div className="h-screen overflow-hidden" style={{ height: 'calc(var(--vh, 1vh) * 100)' }}>
+        <div className="h-screen w-screen overflow-hidden max-w-full">
           <Toaster />
           <Sonner />
           <BrowserRouter>

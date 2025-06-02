@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { MetroProvider } from '@/contexts/MetroContext';
 import TopToolbar from '@/components/TopToolbar';
@@ -10,9 +11,9 @@ import StopDetailSheet from '@/components/StopDetailSheet';
 const MetroBruinPage = () => {
   return (
     <MetroProvider>
-      <div className="h-full flex flex-col bg-gray-100 overflow-hidden" style={{ height: 'calc(var(--vh, 1vh) * 100)' }}>
+      <div className="h-screen w-screen flex flex-col bg-gray-100 overflow-hidden max-w-full">
         <TopToolbar />
-        <div className="flex-1 relative overflow-hidden">
+        <div className="flex-1 relative overflow-hidden w-full">
           <OpenStreetMap />
           <RouteChips />
           <POIDetailSheet />

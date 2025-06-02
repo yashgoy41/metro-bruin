@@ -17,7 +17,7 @@ const RouteChips = () => {
   };
 
   return (
-    <div className="absolute top-36 left-4 z-[1000] flex flex-col gap-2 pointer-events-auto max-h-[calc(100vh-200px)] overflow-y-auto scrollbar-hide max-w-[calc(100vw-2rem)]">
+    <div className="absolute top-[120px] left-2 z-[1000] flex flex-col gap-2 pointer-events-auto max-h-[calc(100vh-180px)] overflow-y-auto scrollbar-hide max-w-[200px]">
       {visibleBusLines.map((line) => {
         const isSelected = selectedRoute?.id === line.id;
         return (
@@ -29,7 +29,7 @@ const RouteChips = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => handleRouteClick(line)}
-            className={`px-3 py-2 rounded-full text-white font-bold shadow-lg min-w-[50px] min-h-[44px] text-sm pointer-events-auto transition-all flex items-center justify-center ${
+            className={`px-3 py-2 rounded-full text-white font-bold shadow-lg min-w-[50px] min-h-[40px] text-sm pointer-events-auto transition-all flex items-center justify-center ${
               isSelected ? 'ring-4 ring-opacity-50' : ''
             }`}
             style={{ 

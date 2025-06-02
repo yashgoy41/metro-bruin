@@ -15,39 +15,39 @@ const TopToolbar = () => {
 
   return (
     <>
-      {/* Header */}
-      <div className="bg-white shadow-lg z-[1001] relative">
-        <div className="flex items-center justify-between px-6 py-4">
-          <h1 className="text-xl font-bold flex items-center">
+      {/* Header - Fixed height to prevent layout shift */}
+      <div className="bg-white shadow-lg z-[1001] relative flex-shrink-0">
+        <div className="flex items-center justify-between px-4 py-3 min-h-[60px]">
+          <h1 className="text-lg font-bold flex items-center min-w-0 flex-1">
             <img 
               src="/lovable-uploads/fa2f59d0-1bbd-4815-8500-42e40de07c66.png" 
               alt="MetroBruin Logo" 
-              className="w-8 h-8 mr-3 flex-shrink-0"
+              className="w-7 h-7 mr-2 flex-shrink-0"
             />
             <span className="truncate">MetroBruin</span>
           </h1>
           
-          <div className="flex items-center text-base font-medium flex-shrink-0">
-            <MapPin size={24} className="mr-2 text-bettertrip-green flex-shrink-0" />
+          <div className="flex items-center text-sm font-medium flex-shrink-0 ml-2">
+            <MapPin size={20} className="mr-1 text-bettertrip-green flex-shrink-0" />
             <span className="text-gray-800 font-bold">UCLA</span>
           </div>
         </div>
       </div>
       
-      {/* Floating Category Pills - Horizontal Row */}
-      <div className="absolute top-24 left-4 right-4 z-[1000] flex flex-row gap-2 pointer-events-auto overflow-x-auto scrollbar-hide">
-        <div className="flex gap-2 min-w-max px-2">
+      {/* Category Pills - Positioned to not overflow */}
+      <div className="absolute top-[60px] left-2 right-2 z-[1000] flex flex-row gap-2 pointer-events-auto">
+        <div className="flex gap-2 overflow-x-auto scrollbar-hide w-full px-2 pb-2">
           {categories.map((category) => (
             <button
               key={category.id}
               onClick={() => setSelectedCategory(category.id)}
-              className={`px-4 py-2 rounded-full font-medium transition-all shadow-lg pointer-events-auto whitespace-nowrap flex-shrink-0 min-h-[44px] flex items-center ${
+              className={`px-3 py-2 rounded-full font-medium transition-all shadow-lg pointer-events-auto whitespace-nowrap flex-shrink-0 min-h-[40px] flex items-center text-sm ${
                 selectedCategory === category.id
                   ? 'bg-blue-500 text-white'
                   : 'bg-white text-gray-700 hover:bg-gray-50'
               }`}
             >
-              <span className="mr-2">{category.icon}</span>
+              <span className="mr-1.5 text-base">{category.icon}</span>
               {category.label}
             </button>
           ))}
