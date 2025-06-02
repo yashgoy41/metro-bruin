@@ -34,9 +34,9 @@ const TopToolbar = () => {
         </div>
       </div>
       
-      {/* Category Pills - Positioned to not overflow */}
-      <div className="absolute top-[60px] left-2 right-2 z-[1000] flex flex-row gap-2 pointer-events-auto">
-        <div className="flex gap-2 overflow-x-auto scrollbar-hide w-full px-2 pb-2">
+      {/* Category Pills - Fixed overflow issue */}
+      <div className="absolute top-[60px] left-0 right-0 z-[1000] pointer-events-none">
+        <div className="flex gap-2 overflow-x-auto scrollbar-hide px-4 pb-2 pointer-events-auto">
           {categories.map((category) => (
             <button
               key={category.id}
