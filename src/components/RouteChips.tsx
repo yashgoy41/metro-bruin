@@ -17,7 +17,7 @@ const RouteChips = () => {
   };
 
   return (
-    <div className="absolute top-[140px] left-2 z-[1000] flex flex-col gap-2 pointer-events-auto max-h-[calc(100vh-200px)] overflow-y-auto scrollbar-hide max-w-[200px]">
+    <div className="absolute top-[120px] left-2 z-[1000] flex flex-col gap-2 pointer-events-auto max-h-[calc(100vh-180px)] overflow-y-auto scrollbar-hide max-w-[200px]">
       {visibleBusLines.map((line) => {
         const isSelected = selectedRoute?.id === line.id;
         return (
