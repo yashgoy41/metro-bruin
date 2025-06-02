@@ -11,7 +11,7 @@ import StopDetailSheet from '@/components/StopDetailSheet';
 const MetroBruinPage = () => {
   return (
     <MetroProvider>
-      <div className="h-screen w-screen flex flex-col bg-gray-100 overflow-hidden max-w-full">
+      <div className="h-full w-full flex flex-col bg-gray-100 overflow-hidden">
         <TopToolbar />
         <div className="flex-1 relative overflow-hidden w-full">
           <OpenStreetMap />
