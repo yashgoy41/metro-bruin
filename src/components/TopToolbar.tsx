@@ -32,11 +32,9 @@ const TopToolbar = () => {
             <span className="text-gray-800 font-bold">UCLA</span>
           </div>
         </div>
-      </div>
-      
-      {/* Category Pills - Fixed overflow issue */}
-      <div className="absolute top-[60px] left-0 right-0 z-[1000] pointer-events-none">
-        <div className="flex gap-2 overflow-x-auto scrollbar-hide px-4 pb-2 pointer-events-auto">
+        
+        {/* Category Pills - Positioned directly under header */}
+        <div className="flex gap-2 overflow-x-auto scrollbar-hide px-4 pb-3 pointer-events-auto">
           {categories.map((category) => (
             <button
               key={category.id}
