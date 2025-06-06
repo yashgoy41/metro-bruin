@@ -116,9 +116,9 @@ const POIDetailSheet = () => {
           exit={{ y: '100%' }}
           drag="y"
           dragConstraints={{ top: 0, bottom: 0 }}
-          dragElastic={0.2}
+          dragElastic={0.5}
           onDragEnd={handleDragEnd}
-          transition={{ type: 'spring', damping: 25, stiffness: 500 }}
+          transition={{ type: 'spring', damping: 25, stiffness: 0 }}
           className="fixed bottom-0 left-0 right-0 bg-white rounded-t-2xl shadow-2xl z-[1002] overflow-hidden"
         >
           {/* Drag handle */}
