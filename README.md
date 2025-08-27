@@ -2,6 +2,8 @@
 
 An interactive transit application designed to help UCLA students discover Los Angeles through public transportation, building confidence and encouraging ridership across the city.
 
+<img alt="image" src="https://github.com/yashgoy41/metro-bruin/blob/main/public/MetroBruin%20Poster.png">
+
 ## 🌟 Key Features
 
 - **Interactive Transit Map**: Color-coded bus routes with real-time POI discovery
